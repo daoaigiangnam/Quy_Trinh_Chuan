@@ -186,3 +186,12 @@ Các nội dung hiện là **dự thảo v0.1**, chưa phải quy trình đã ba
 3. Hoàn tất đánh giá rủi ro và SoA; kiểm tra mapping ISO với bản tiêu chuẩn được cấp phép.
 4. Thử nghiệm, sửa lỗi lưu đồ/biểu mẫu, đào tạo và ban hành theo thẩm quyền.
 5. Không coi việc có tài liệu là bằng chứng Mstar đã được chứng nhận ISO.
+
+## 10. Tài liệu quy trình theo mã
+
+Để thuận tiện phân công, rà soát và quản lý phiên bản, từng quy trình đã có một file Markdown riêng trong thư mục `quy-trinh/chi-tiet/`.
+
+- [Mở danh mục 41 quy trình chi tiết](quy-trinh/chi-tiet/README.md)
+- [Mở thư mục quy trình chi tiết](quy-trinh/chi-tiet/)
+
+Mỗi file riêng chứa nội dung quy trình và lưu đồ Mermaid tương ứng. Các tài liệu nhóm vẫn được duy trì để đọc theo chủ đề.
