@@ -62,10 +62,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Xác minh/phê duyệt"]
   S2 --> S3["Cấp quyền"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Rà soát"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Rà soát"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -150,10 +151,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Đánh giá/phê duyệt"]
   S2 --> S3["Cấp quyền có kiểm soát"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Sử dụng/giám sát"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Sử dụng/giám sát"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -238,10 +240,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Chọn kho an toàn"]
   S2 --> S3["Cấp quyền/luân chuyển"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Ứng phó nghi lộ"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Ứng phó nghi lộ"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -326,10 +329,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Phân loại"]
   S2 --> S3["Phê duyệt xử lý"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Lưu/truyền/chia sẻ"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Lưu/truyền/chia sẻ"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -414,10 +418,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Phân loại/kích hoạt"]
   S2 --> S3["Cô lập/bảo toàn"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Điều tra/khắc phục"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Điều tra/khắc phục"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -502,10 +507,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Cấu hình/bảo vệ"]
   S2 --> S3["Giám sát/rà soát"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Trích xuất/bảo toàn"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Trích xuất/bảo toàn"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -590,10 +596,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Xác minh/ưu tiên"]
   S2 --> S3["Chọn phương án"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Triển khai có kiểm soát"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Triển khai có kiểm soát"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -678,10 +685,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Áp baseline"]
   S2 --> S3["Giám sát tuân thủ"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Xử lý cảnh báo/mất"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Xử lý cảnh báo/mất"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -766,10 +774,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Đánh giá an toàn"]
   S2 --> S3["Phê duyệt"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Triển khai/test"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Triển khai/test"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -854,10 +863,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Thẩm định rủi ro"]
   S2 --> S3["Ký điều khoản/phê duyệt"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Cấp quyền/theo dõi"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Cấp quyền/theo dõi"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -942,10 +952,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Xác minh quyền/phê duyệt"]
   S2 --> S3["Chọn kênh an toàn"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Thực hiện/ghi nhận"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Thực hiện/ghi nhận"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
