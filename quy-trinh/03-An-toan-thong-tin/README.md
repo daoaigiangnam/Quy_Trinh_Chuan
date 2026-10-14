@@ -32,69 +32,87 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 
 **Mục đích:** Bảo đảm mỗi danh tính được xác thực, quyền được phê duyệt theo nhu cầu, rà soát và thu hồi đúng lúc.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Khởi tạo yêu cầu | Người yêu cầu/đầu mối | Khởi tạo yêu cầu | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi danh tính, hệ thống, quyền, lý do, khách hàng và thời hạn; không dùng tài khoản cá nhân dùng chung. | Chủ sở hữu quy trình/IT Lead | Ghi danh tính, hệ thống, quyền, lý do, khách hàng và thời hạn; không dùng tài khoản cá nhân dùng chung. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Xác minh/phê duyệt | Người thực hiện và người kiểm tra | Quản lý và chủ sở hữu hệ thống xác nhận quyền tối thiểu, xung đột nhiệm vụ và phê duyệt khách hàng. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Cấp quyền | Người thực hiện và người kiểm tra | Tạo tài khoản riêng, bật MFA theo chính sách, cấp role tối thiểu và ghi log. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Rà soát | Người thực hiện và người kiểm tra | Đối chiếu danh sách với vai trò; ưu tiên quyền đặc quyền, vendor và quyền khách hàng. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Khởi tạo yêu cầu"]
-  S2["Ghi danh tính, hệ thống, quyền, lý do, khách hàng và thời hạn; không dùng tài khoản cá nhân dùng chung."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Xác minh/phê duyệt"]
+  S2 --> S3["Cấp quyền"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Rà soát"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Xác minh/phê duyệt|Quản lý và chủ sở hữu hệ thống xác nhận quyền tối thiểu, xung đột nhiệm vụ và phê duyệt khách hàng.
+- FR-QTIT11-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTIT11-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTIT11-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTIT11-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Cấp quyền|Tạo tài khoản riêng, bật MFA theo chính sách, cấp role tối thiểu và ghi log.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Rà soát|Đối chiếu danh sách với vai trò; ưu tiên quyền đặc quyền, vendor và quyền khách hàng.
+Đối chiếu danh sách với vai trò; ưu tiên quyền đặc quyền, vendor và quyền khách hàng.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -102,69 +120,87 @@ Rà soát|Đối chiếu danh sách với vai trò; ưu tiên quyền đặc quy
 
 **Mục đích:** Giới hạn và giám sát tài khoản có khả năng thay đổi hệ thống trọng yếu hoặc truy cập dữ liệu nhạy cảm.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Đề xuất quyền | Người yêu cầu/đầu mối | Đề xuất quyền | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Nêu nhiệm vụ, phạm vi, thời gian, quyền cần và lựa chọn quyền thấp hơn. | Chủ sở hữu quy trình/IT Lead | Nêu nhiệm vụ, phạm vi, thời gian, quyền cần và lựa chọn quyền thấp hơn. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Đánh giá/phê duyệt | Người thực hiện và người kiểm tra | Đánh giá rủi ro, xung đột nhiệm vụ, MFA, log, yêu cầu khách hàng và thời hạn. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Cấp quyền có kiểm soát | Người thực hiện và người kiểm tra | Dùng danh tính riêng, MFA, quyền vừa đủ/tạm thời; bí mật lưu trong vault. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Sử dụng/giám sát | Người thực hiện và người kiểm tra | Gắn với ticket/change, ghi log và giám sát hành động nhạy cảm. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Đề xuất quyền"]
-  S2["Nêu nhiệm vụ, phạm vi, thời gian, quyền cần và lựa chọn quyền thấp hơn."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Đánh giá/phê duyệt"]
+  S2 --> S3["Cấp quyền có kiểm soát"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Sử dụng/giám sát"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Đánh giá/phê duyệt|Đánh giá rủi ro, xung đột nhiệm vụ, MFA, log, yêu cầu khách hàng và thời hạn.
+- FR-QTATTT01-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT01-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT01-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT01-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Cấp quyền có kiểm soát|Dùng danh tính riêng, MFA, quyền vừa đủ/tạm thời; bí mật lưu trong vault.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Sử dụng/giám sát|Gắn với ticket/change, ghi log và giám sát hành động nhạy cảm.
+Gắn với ticket/change, ghi log và giám sát hành động nhạy cảm.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -172,69 +208,87 @@ Sử dụng/giám sát|Gắn với ticket/change, ghi log và giám sát hành �
 
 **Mục đích:** Bảo vệ mật khẩu, token, API key, SSH key, chứng thư và bí mật khỏi lộ lọt hoặc tồn tại sau khi hết nhu cầu.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Đăng ký bí mật | Người yêu cầu/đầu mối | Đăng ký bí mật | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi metadata, hệ thống, owner, mục đích và thời hạn; không ghi giá trị bí mật trong danh mục. | Chủ sở hữu quy trình/IT Lead | Ghi metadata, hệ thống, owner, mục đích và thời hạn; không ghi giá trị bí mật trong danh mục. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Chọn kho an toàn | Người thực hiện và người kiểm tra | Dùng vault/password manager được duyệt; bật MFA, audit log và quyền tối thiểu. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Cấp quyền/luân chuyển | Người thực hiện và người kiểm tra | Cấp qua kênh an toàn; luân chuyển khi thay người hoặc theo rủi ro; không gửi qua ticket/email thường. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Ứng phó nghi lộ | Người thực hiện và người kiểm tra | Thu hồi/rotate, kiểm tra log và các hệ thống phụ thuộc; mở incident khi cần. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Đăng ký bí mật"]
-  S2["Ghi metadata, hệ thống, owner, mục đích và thời hạn; không ghi giá trị bí mật trong danh mục."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Chọn kho an toàn"]
+  S2 --> S3["Cấp quyền/luân chuyển"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Ứng phó nghi lộ"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Chọn kho an toàn|Dùng vault/password manager được duyệt; bật MFA, audit log và quyền tối thiểu.
+- FR-QTATTT02-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT02-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT02-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT02-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Cấp quyền/luân chuyển|Cấp qua kênh an toàn; luân chuyển khi thay người hoặc theo rủi ro; không gửi qua ticket/email thường.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Ứng phó nghi lộ|Thu hồi/rotate, kiểm tra log và các hệ thống phụ thuộc; mở incident khi cần.
+Thu hồi/rotate, kiểm tra log và các hệ thống phụ thuộc; mở incident khi cần.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -242,69 +296,87 @@ Cấp quyền/luân chuyển|Cấp qua kênh an toàn; luân chuyển khi thay n
 
 **Mục đích:** Bảo vệ dữ liệu theo độ nhạy, quyền sở hữu, mục đích, hợp đồng và vòng đời.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Nhận diện/owner | Người yêu cầu/đầu mối | Nhận diện/owner | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi loại dữ liệu, nguồn, mục đích, chủ sở hữu, dữ liệu cá nhân/nhạy cảm và khách hàng. | Chủ sở hữu quy trình/IT Lead | Ghi loại dữ liệu, nguồn, mục đích, chủ sở hữu, dữ liệu cá nhân/nhạy cảm và khách hàng. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Phân loại | Người thực hiện và người kiểm tra | Gán nhãn và yêu cầu truy cập, mã hóa, logging, truyền và lưu giữ. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Phê duyệt xử lý | Người thực hiện và người kiểm tra | Xác minh mục đích hợp lệ, người được phép và quyền xuất/chia sẻ. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Lưu/truyền/chia sẻ | Người thực hiện và người kiểm tra | Dùng nơi/kênh được duyệt, mã hóa phù hợp, xác minh người nhận và tránh bản sao không kiểm soát. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Nhận diện/owner"]
-  S2["Ghi loại dữ liệu, nguồn, mục đích, chủ sở hữu, dữ liệu cá nhân/nhạy cảm và khách hàng."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Phân loại"]
+  S2 --> S3["Phê duyệt xử lý"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Lưu/truyền/chia sẻ"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Phân loại|Gán nhãn và yêu cầu truy cập, mã hóa, logging, truyền và lưu giữ.
+- FR-QTATTT03-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT03-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT03-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT03-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Phê duyệt xử lý|Xác minh mục đích hợp lệ, người được phép và quyền xuất/chia sẻ.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Lưu/truyền/chia sẻ|Dùng nơi/kênh được duyệt, mã hóa phù hợp, xác minh người nhận và tránh bản sao không kiểm soát.
+Dùng nơi/kênh được duyệt, mã hóa phù hợp, xác minh người nhận và tránh bản sao không kiểm soát.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -312,69 +384,87 @@ Lưu/truyền/chia sẻ|Dùng nơi/kênh được duyệt, mã hóa phù hợp, 
 
 **Mục đích:** Phát hiện, cô lập, điều tra, phục hồi và thông báo sự cố; bảo toàn bằng chứng và cải tiến.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Phát hiện/ghi nhận | Người yêu cầu/đầu mối | Phát hiện/ghi nhận | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi thời điểm, hệ thống, dấu hiệu và bằng chứng ban đầu; tránh làm mất hiện trường. | Chủ sở hữu quy trình/IT Lead | Ghi thời điểm, hệ thống, dấu hiệu và bằng chứng ban đầu; tránh làm mất hiện trường. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Phân loại/kích hoạt | Người thực hiện và người kiểm tra | Xác định mức độ, dữ liệu/khách hàng ảnh hưởng, người chỉ huy và nghĩa vụ thông báo. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Cô lập/bảo toàn | Người thực hiện và người kiểm tra | Giới hạn lan rộng, bảo toàn log/snapshot/hash và chuỗi bàn giao bằng chứng. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Điều tra/khắc phục | Người thực hiện và người kiểm tra | Xác định vector/phạm vi, loại bỏ nguyên nhân và xác minh môi trường sạch. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Phát hiện/ghi nhận"]
-  S2["Ghi thời điểm, hệ thống, dấu hiệu và bằng chứng ban đầu; tránh làm mất hiện trường."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Phân loại/kích hoạt"]
+  S2 --> S3["Cô lập/bảo toàn"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Điều tra/khắc phục"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Phân loại/kích hoạt|Xác định mức độ, dữ liệu/khách hàng ảnh hưởng, người chỉ huy và nghĩa vụ thông báo.
+- FR-QTATTT04-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT04-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT04-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT04-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Cô lập/bảo toàn|Giới hạn lan rộng, bảo toàn log/snapshot/hash và chuỗi bàn giao bằng chứng.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Điều tra/khắc phục|Xác định vector/phạm vi, loại bỏ nguyên nhân và xác minh môi trường sạch.
+Xác định vector/phạm vi, loại bỏ nguyên nhân và xác minh môi trường sạch.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -382,69 +472,87 @@ Cô lập/bảo toàn|Giới hạn lan rộng, bảo toàn log/snapshot/hash và
 
 **Mục đích:** Bảo đảm log truy nguyên được, chống sửa/xóa trái phép, lưu giữ và trích xuất có kiểm soát.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Xác định nguồn log | Người yêu cầu/đầu mối | Xác định nguồn log | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Chọn hệ thống, sự kiện, độ chi tiết, timestamp và dữ liệu nhạy cảm không nên ghi. | Chủ sở hữu quy trình/IT Lead | Chọn hệ thống, sự kiện, độ chi tiết, timestamp và dữ liệu nhạy cảm không nên ghi. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Cấu hình/bảo vệ | Người thực hiện và người kiểm tra | Bật log, đồng bộ thời gian, giới hạn quyền, chuyển tới kho được bảo vệ khi phù hợp. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Giám sát/rà soát | Người thực hiện và người kiểm tra | Theo dõi lỗi thu thập, dung lượng, bất thường và truy cập log. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Trích xuất/bảo toàn | Người thực hiện và người kiểm tra | Ghi mục đích, người làm, phạm vi, thời gian, hash nếu phù hợp và chain-of-custody. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Xác định nguồn log"]
-  S2["Chọn hệ thống, sự kiện, độ chi tiết, timestamp và dữ liệu nhạy cảm không nên ghi."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Cấu hình/bảo vệ"]
+  S2 --> S3["Giám sát/rà soát"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Trích xuất/bảo toàn"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Cấu hình/bảo vệ|Bật log, đồng bộ thời gian, giới hạn quyền, chuyển tới kho được bảo vệ khi phù hợp.
+- FR-QTATTT05-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT05-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT05-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT05-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Giám sát/rà soát|Theo dõi lỗi thu thập, dung lượng, bất thường và truy cập log.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Trích xuất/bảo toàn|Ghi mục đích, người làm, phạm vi, thời gian, hash nếu phù hợp và chain-of-custody.
+Ghi mục đích, người làm, phạm vi, thời gian, hash nếu phù hợp và chain-of-custody.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -452,69 +560,87 @@ Trích xuất/bảo toàn|Ghi mục đích, người làm, phạm vi, thời gia
 
 **Mục đích:** Ưu tiên khắc phục lỗ hổng theo mức nghiêm trọng, khả năng khai thác, phơi nhiễm và tác động.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Tiếp nhận phát hiện | Người yêu cầu/đầu mối | Tiếp nhận phát hiện | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi nguồn, tài sản, phiên bản, bằng chứng, mức độ và ngày phát hiện. | Chủ sở hữu quy trình/IT Lead | Ghi nguồn, tài sản, phiên bản, bằng chứng, mức độ và ngày phát hiện. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Xác minh/ưu tiên | Người thực hiện và người kiểm tra | Xác nhận áp dụng, exposure, exploit, tác động và hạn khắc phục. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Chọn phương án | Người thực hiện và người kiểm tra | Vá, nâng cấp, giảm thiểu, cô lập hoặc ngoại lệ có thời hạn; đánh giá backup/rollback. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Triển khai có kiểm soát | Người thực hiện và người kiểm tra | Thực hiện change, thử nghiệm, phê duyệt và thông báo cần thiết. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Tiếp nhận phát hiện"]
-  S2["Ghi nguồn, tài sản, phiên bản, bằng chứng, mức độ và ngày phát hiện."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Xác minh/ưu tiên"]
+  S2 --> S3["Chọn phương án"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Triển khai có kiểm soát"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Xác minh/ưu tiên|Xác nhận áp dụng, exposure, exploit, tác động và hạn khắc phục.
+- FR-QTATTT06-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT06-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT06-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT06-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Chọn phương án|Vá, nâng cấp, giảm thiểu, cô lập hoặc ngoại lệ có thời hạn; đánh giá backup/rollback.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Triển khai có kiểm soát|Thực hiện change, thử nghiệm, phê duyệt và thông báo cần thiết.
+Thực hiện change, thử nghiệm, phê duyệt và thông báo cần thiết.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -522,69 +648,87 @@ Triển khai có kiểm soát|Thực hiện change, thử nghiệm, phê duyệt
 
 **Mục đích:** Giảm mã độc, mất thiết bị, truy cập trái phép và thất thoát dữ liệu từ thiết bị truy cập hệ thống Mstar/khách hàng.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Đăng ký/cấp phát | Người yêu cầu/đầu mối | Đăng ký/cấp phát | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi serial, owner, người dùng, mức nhạy cảm và phạm vi truy cập. | Chủ sở hữu quy trình/IT Lead | Ghi serial, owner, người dùng, mức nhạy cảm và phạm vi truy cập. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Áp baseline | Người thực hiện và người kiểm tra | Cập nhật, EDR/AV, mã hóa, firewall, screen lock, MFA và hạn chế local admin. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Giám sát tuân thủ | Người thực hiện và người kiểm tra | Theo dõi EDR, bản vá, mã hóa, phần mềm không phép và thiết bị mất liên lạc. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Xử lý cảnh báo/mất | Người thực hiện và người kiểm tra | Cô lập, khóa session/token, điều tra và thông báo nếu ảnh hưởng khách hàng. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Đăng ký/cấp phát"]
-  S2["Ghi serial, owner, người dùng, mức nhạy cảm và phạm vi truy cập."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Áp baseline"]
+  S2 --> S3["Giám sát tuân thủ"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Xử lý cảnh báo/mất"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Áp baseline|Cập nhật, EDR/AV, mã hóa, firewall, screen lock, MFA và hạn chế local admin.
+- FR-QTATTT07-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT07-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT07-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT07-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Giám sát tuân thủ|Theo dõi EDR, bản vá, mã hóa, phần mềm không phép và thiết bị mất liên lạc.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Xử lý cảnh báo/mất|Cô lập, khóa session/token, điều tra và thông báo nếu ảnh hưởng khách hàng.
+Cô lập, khóa session/token, điều tra và thông báo nếu ảnh hưởng khách hàng.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -592,69 +736,87 @@ Xử lý cảnh báo/mất|Cô lập, khóa session/token, điều tra và thôn
 
 **Mục đích:** Kiểm soát luồng mạng, VPN, firewall và remote support theo nhu cầu, phê duyệt và khả năng truy vết.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Yêu cầu kết nối | Người yêu cầu/đầu mối | Yêu cầu kết nối | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi source/destination/port/protocol, mục đích, owner và thời hạn. | Chủ sở hữu quy trình/IT Lead | Ghi source/destination/port/protocol, mục đích, owner và thời hạn. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Đánh giá an toàn | Người thực hiện và người kiểm tra | Kiểm tra phân vùng, exposure Internet, MFA/VPN, log và phương án ít quyền hơn. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Phê duyệt | Người thực hiện và người kiểm tra | IT Lead/chủ sở hữu hệ thống/khách hàng phê duyệt theo phạm vi và thẩm quyền. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Triển khai/test | Người thực hiện và người kiểm tra | Backup cấu hình, áp rule hẹp nhất, ghi change, test kết nối và log. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Yêu cầu kết nối"]
-  S2["Ghi source/destination/port/protocol, mục đích, owner và thời hạn."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Đánh giá an toàn"]
+  S2 --> S3["Phê duyệt"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Triển khai/test"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Đánh giá an toàn|Kiểm tra phân vùng, exposure Internet, MFA/VPN, log và phương án ít quyền hơn.
+- FR-QTATTT08-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT08-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT08-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT08-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Phê duyệt|IT Lead/chủ sở hữu hệ thống/khách hàng phê duyệt theo phạm vi và thẩm quyền.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Triển khai/test|Backup cấu hình, áp rule hẹp nhất, ghi change, test kết nối và log.
+Backup cấu hình, áp rule hẹp nhất, ghi change, test kết nối và log.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -662,69 +824,87 @@ Triển khai/test|Backup cấu hình, áp rule hẹp nhất, ghi change, test k�
 
 **Mục đích:** Đánh giá và kiểm soát rủi ro nhà cung cấp truy cập hệ thống, dữ liệu hoặc dịch vụ trọng yếu.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Xác định trọng yếu | Người yêu cầu/đầu mối | Xác định trọng yếu | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Ghi dịch vụ, dữ liệu/hệ thống, phụ thuộc, gián đoạn và phương án thay thế. | Chủ sở hữu quy trình/IT Lead | Ghi dịch vụ, dữ liệu/hệ thống, phụ thuộc, gián đoạn và phương án thay thế. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Thẩm định rủi ro | Người thực hiện và người kiểm tra | Đánh giá bảo mật, vị trí dữ liệu, sự cố, liên tục kinh doanh và quyền kiểm tra. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Ký điều khoản/phê duyệt | Người thực hiện và người kiểm tra | Chốt NDA, xử lý dữ liệu, thông báo sự cố, subprocessor, SLA, audit và exit. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Cấp quyền/theo dõi | Người thực hiện và người kiểm tra | Cấp quyền tối thiểu, MFA, thời hạn; theo dõi SLA, sự cố và thay đổi. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Xác định trọng yếu"]
-  S2["Ghi dịch vụ, dữ liệu/hệ thống, phụ thuộc, gián đoạn và phương án thay thế."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Thẩm định rủi ro"]
+  S2 --> S3["Ký điều khoản/phê duyệt"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Cấp quyền/theo dõi"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Thẩm định rủi ro|Đánh giá bảo mật, vị trí dữ liệu, sự cố, liên tục kinh doanh và quyền kiểm tra.
+- FR-QTATTT09-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT09-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT09-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT09-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Ký điều khoản/phê duyệt|Chốt NDA, xử lý dữ liệu, thông báo sự cố, subprocessor, SLA, audit và exit.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Cấp quyền/theo dõi|Cấp quyền tối thiểu, MFA, thời hạn; theo dõi SLA, sự cố và thay đổi.
+Cấp quyền tối thiểu, MFA, thời hạn; theo dõi SLA, sự cố và thay đổi.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
 
@@ -732,66 +912,84 @@ Cấp quyền/theo dõi|Cấp quyền tối thiểu, MFA, thời hạn; theo dõ
 
 **Mục đích:** Ngăn truy cập, sao chép, chia sẻ hoặc sử dụng dữ liệu khách hàng ngoài mục đích; bảo đảm phân tách và truy vết.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi; khi thay đổi đáng kể; theo chu kỳ; hoặc khi hợp đồng/khách hàng yêu cầu.
+**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
 
-**Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing thuộc hợp đồng/ủy quyền. Chi tiết hệ thống, SLA, đầu mối, quyền, retention, thông báo và RTO/RPO phải được cấu hình trong phụ lục khách hàng.
+**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
 
-**Vai trò:** Người yêu cầu; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền; đầu mối khách hàng khi hợp đồng yêu cầu. Người thực hiện không tự phê duyệt thay đổi/rủi ro trọng yếu của chính mình.
+**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
 
 **Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
 
 **Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
 
-### Các bước thực hiện
+### Trình tự thực hiện
 
 | Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
 |---:|---|---|---|---|
-| 1 | Xác định dữ liệu/mục đích | Người yêu cầu/đầu mối | Xác định dữ liệu/mục đích | Hồ sơ/ticket/log/phê duyệt tương ứng |
-| 2 | Nêu khách hàng sở hữu, phạm vi tối thiểu, lý do và người nhận. | Chủ sở hữu quy trình/IT Lead | Nêu khách hàng sở hữu, phạm vi tối thiểu, lý do và người nhận. | Hồ sơ/ticket/log/phê duyệt tương ứng |
+| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 2 | Xác minh quyền/phê duyệt | Người thực hiện và người kiểm tra | Kiểm tra hợp đồng, mục đích, dữ liệu cá nhân/nhạy cảm và thẩm quyền. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 3 | Chọn kênh an toàn | Người thực hiện và người kiểm tra | Dùng kênh được duyệt, mã hóa, thời hạn link và phương án xóa. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 4 | Thực hiện/ghi nhận | Người thực hiện và người kiểm tra | Xử lý dữ liệu tối thiểu; xác minh người nhận; ghi ticket/log và thời điểm. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
 
 ### Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1
-  S1["Xác định dữ liệu/mục đích"]
-  S2["Nêu khách hàng sở hữu, phạm vi tối thiểu, lý do và người nhận."]
-  S1 --> S2
-  S2 --> D2{"Kết quả đạt, bằng chứng đủ?"}
-  D2 -- Không --> REWORK[/"Khắc phục / xử lý ngoại lệ"/]
-  REWORK --> S2
-  D2 -- Có --> Z([Kết thúc, lưu hồ sơ])
+  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
+  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
+  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
+  F1 --> S1
+  D1 -- Có --> S2["Xác minh quyền/phê duyệt"]
+  S2 --> S3["Chọn kênh an toàn"]
+  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
+  D2 -- Có --> S4["Thực hiện/ghi nhận"]
+  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
+  S4 --> S5
+  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
+  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
+  R --> S3
+  D3 -- Có --> Z([Kết thúc])
 ```
 
-### Biểu mẫu/hồ sơ
+### Biểu mẫu và hồ sơ
 
-Xác minh quyền/phê duyệt|Kiểm tra hợp đồng, mục đích, dữ liệu cá nhân/nhạy cảm và thẩm quyền.
+- FR-QTATTT10-01: Phiếu yêu cầu/checklist khởi tạo.
+- FR-QTATTT10-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
+- FR-QTATTT10-03: Nhật ký thực hiện/biên bản/báo cáo.
+- FR-QTATTT10-04: Xác nhận hoàn tất và theo dõi việc tồn.
+
+*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
 
 ### KPI và giám sát
 
-Chọn kênh an toàn|Dùng kênh được duyệt, mã hóa, thời hạn link và phương án xóa.
+- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
+- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
+- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
+- Tỷ lệ hành động khắc phục đóng đúng hạn.
+
+Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
 
 ### Ngoại lệ và an toàn thông tin
 
-Thực hiện/ghi nhận|Xử lý dữ liệu tối thiểu; xác minh người nhận; ghi ticket/log và thời điểm.
+Xử lý dữ liệu tối thiểu; xác minh người nhận; ghi ticket/log và thời điểm.
 
-- Xác minh thẩm quyền/phạm vi trước khi thao tác; không tự mở rộng quyền.
+- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
 - Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
 - Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Lưu hồ sơ ở kho được Mstar phê duyệt, phân quyền tối thiểu và giữ theo yêu cầu hợp đồng/pháp luật.
-- Chỉ đóng việc khi kết quả được kiểm tra và bằng chứng cần thiết đã lưu.
+- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
 
-### Phụ lục khách hàng cần cấu hình
+### Phụ lục cần cấu hình theo khách hàng
 
-| Trường | Giá trị cần xác nhận |
+| Trường | Nội dung xác nhận |
 |---|---|
-| Khách hàng/mã hợp đồng | Điền theo hợp đồng |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản, loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh và người thay thế |
+| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
+| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
+| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
+| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
 | Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
 | Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận, thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, biện pháp bù trừ, ngày hết hạn |
+| Thông báo sự cố | Kênh, người nhận và thời hạn |
+| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
-> **Trạng thái:** Dự thảo v0.1 — chờ Mstar rà soát, thử nghiệm và phê duyệt. Tham chiếu ISO chỉ là định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
