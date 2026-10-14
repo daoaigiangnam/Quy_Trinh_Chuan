@@ -56,10 +56,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Thiết kế/phê duyệt"]
   S2 --> S3["Cấu hình/kiểm tra"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Giám sát/xử lý lỗi"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Giám sát/xử lý lỗi"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -144,10 +145,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Phê duyệt/chuẩn bị"]
   S2 --> S3["Thực hiện restore"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Xác minh"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Xác minh"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -232,10 +234,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Phân tích tác động"]
   S2 --> S3["Chọn chiến lược/lập kế hoạch"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Diễn tập"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Diễn tập"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -320,10 +323,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Điều phối"]
   S2 --> S3["Khôi phục"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Kiểm thử/xác nhận"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Kiểm thử/xác nhận"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
@@ -408,10 +412,11 @@ flowchart TD
   F1 --> S1
   D1 -- Có --> S2["Thiết lập cảnh báo"]
   S2 --> S3["Xác minh quyền/ngân sách"]
-  S3 --> D2{"Có rủi ro/ngoại lệ cần xử lý?"}
-  D2 -- Có --> S4["Gia hạn/thay thế"]
-  D2 -- Không --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S4 --> S5
+  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
+  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
+  RISK --> S4["Gia hạn/thay thế"]
+  D2 -- Không --> S4
+  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
   S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
   D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
   R --> S3
