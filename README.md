@@ -162,3 +162,27 @@ Không mặc định mọi khách hàng có cùng SLA hoặc cùng yêu cầu b�
 - [ISO/IEC 27002 — Information security controls](https://www.iso.org/standard/75652.html)
 
 **Lưu ý:** Các tham chiếu ISO trong danh mục chỉ mang tính định hướng ban đầu, không phải tuyên bố mapping chính thức. Cần xác nhận theo tiêu chuẩn được cấp phép, phạm vi ISMS, đánh giá rủi ro và SoA của Mstar.
+
+## 9. Bộ quy trình chi tiết và lưu đồ
+
+Đã tạo các tài liệu Markdown theo từng nhóm. Mỗi quy trình có mục đích, phạm vi, vai trò, các bước thực hiện, lưu đồ Mermaid, biểu mẫu/hồ sơ, KPI, ngoại lệ và các trường cần cấu hình riêng theo khách hàng.
+
+| Nhóm | Nội dung | Liên kết |
+|---|---|---|
+| A | Quản trị ISMS — chính sách, rủi ro, tài liệu, nghĩa vụ, ngoại lệ, kiểm toán, xem xét lãnh đạo | [Mở nhóm A](quy-trinh/01-Quan-tri-ISMS/README.md) |
+| B | Vận hành IT Outsourcing — Sale–IT, hỗ trợ, công việc IT, tài sản, onboarding khách hàng, change, cấu hình, giám sát, SLA | [Mở nhóm B](quy-trinh/02-Van-hanh-IT/README.md) |
+| C | An toàn thông tin — IAM, đặc quyền, bí mật kỹ thuật, dữ liệu, incident, log, lỗ hổng, endpoint, network, vendor | [Mở nhóm C](quy-trinh/03-An-toan-thong-tin/README.md) |
+| D | Sao lưu/khôi phục/BCP-DR — backup, restore test, BCP, DR, domain/SSL/chứng thư | [Mở nhóm D](quy-trinh/04-Backup-BCP-DR/README.md) |
+| E | Nhân sự — onboarding, điều chuyển, nghỉ việc, bàn giao tri thức, đào tạo ATTT | [Mở nhóm E](quy-trinh/05-Nhan-su/README.md) |
+| F | Kết thúc hợp đồng và cải tiến — exit, bàn giao nhà cung cấp, thu hồi/xóa dữ liệu, KPI | [Mở nhóm F](quy-trinh/06-Ket-thuc-hop-dong/README.md) |
+
+**Tổng số:** 41 quy trình trong 6 tài liệu nhóm. Lưu đồ được viết bằng Mermaid để GitHub hiển thị trực tiếp.
+
+### Trạng thái kiểm soát tài liệu
+
+Các nội dung hiện là **dự thảo v0.1**, chưa phải quy trình đã ban hành. Trước khi áp dụng cần:
+1. Rà soát theo thực tế vận hành Mstar và hợp đồng khách hàng.
+2. Xác nhận chủ sở hữu, người kiểm tra, người phê duyệt và nơi lưu hồ sơ.
+3. Hoàn tất đánh giá rủi ro và SoA; kiểm tra mapping ISO với bản tiêu chuẩn được cấp phép.
+4. Thử nghiệm, sửa lỗi lưu đồ/biểu mẫu, đào tạo và ban hành theo thẩm quyền.
+5. Không coi việc có tài liệu là bằng chứng Mstar đã được chứng nhận ISO.
