@@ -1,96 +1,123 @@
-# POL-ISMS-01 — Chính sách an toàn thông tin tổng thể
+# POL-ISMS-01 — CHÍNH SÁCH AN TOÀN THÔNG TIN TỔNG THỂ
 
-Tài liệu chi tiết được quản lý trong danh mục quy trình Mstar.
+> **Trạng thái:** Dự thảo nâng cấp v0.2; chỉ có hiệu lực sau khi Ban Giám đốc/người được ủy quyền phê duyệt.  
+> **Chủ sở hữu:** ISMS Owner / IT Lead.  
+> **Phạm vi:** Hoạt động Mstar và dịch vụ IT Outsourcing trong phạm vi được xác định; phạm vi khách hàng cụ thể được quy định tại hợp đồng/phụ lục.
 
-## POL-ISMS-01 — Chính sách an toàn thông tin tổng thể
+## 1. Cam kết của lãnh đạo
 
-**Mục đích:** Thiết lập cam kết lãnh đạo, nguyên tắc CIA, trách nhiệm, quản lý rủi ro và tuân thủ cho Mstar.
+Mstar cam kết bảo vệ tính bí mật, toàn vẹn và sẵn sàng của thông tin thuộc phạm vi quản lý; đáp ứng nghĩa vụ pháp lý, hợp đồng và yêu cầu khách hàng đã được xác minh; quản lý rủi ro theo mức độ; và cải tiến hiệu lực các kiểm soát an toàn thông tin.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
+Lãnh đạo có trách nhiệm:
+- Phê duyệt phạm vi ISMS, mục tiêu, chính sách, nguồn lực và mức chấp nhận rủi ro.
+- Chỉ định người chịu trách nhiệm, quyền quyết định và cơ chế báo cáo.
+- Yêu cầu các đơn vị tuân thủ chính sách và báo cáo sai lệch/sự cố.
+- Xem xét kết quả rủi ro, sự cố, audit, KPI, CAPA và thay đổi bối cảnh.
+- Không xem việc ban hành tài liệu là bằng chứng đủ để kết luận kiểm soát đã vận hành.
 
-**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
+## 2. Mục đích
 
-**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
+Thiết lập nguyên tắc bắt buộc cho việc quản lý thông tin, tài sản, danh tính, quyền truy cập, vận hành hệ thống, nhà cung cấp, sự cố, backup/khôi phục, hồ sơ và tuân thủ. Chính sách này là tài liệu nền; quy trình chuyên biệt, phụ lục khách hàng và hướng dẫn kỹ thuật cụ thể hóa cách thực hiện.
 
-**Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
+## 3. Phạm vi áp dụng
 
-**Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
+Áp dụng cho:
+- Nhân viên, quản lý, cộng tác viên, nhà thầu và bên thứ ba được cấp quyền truy cập thông tin/hệ thống thuộc phạm vi.
+- Thiết bị, mạng, ứng dụng, cloud tenant, máy chủ, dữ liệu, tài khoản, log, bản sao lưu và hồ sơ vận hành.
+- Dịch vụ khách hàng mà Mstar quản lý hoặc được ủy quyền hỗ trợ theo hợp đồng.
 
-### Trình tự thực hiện
+Không tự động mở rộng quyền quản lý của Mstar sang hệ thống khách hàng ngoài phạm vi hợp đồng/ủy quyền. Mỗi khách hàng phải có phụ lục xác định hệ thống, SLA, đầu mối, quyền, dữ liệu, thông báo, backup/DR, lưu giữ và kết thúc dịch vụ.
 
-| Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
-|---:|---|---|---|---|
-| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 2 | Soạn chính sách và mục tiêu | Người thực hiện và người kiểm tra | Quy định trách nhiệm, quyền tối thiểu, phân loại dữ liệu, sự cố, nhà cung cấp, backup, tuân thủ và cải tiến. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 3 | Thẩm định và phê duyệt | Người thực hiện và người kiểm tra | IT Lead rà soát khả thi; Ban Giám đốc/người được ủy quyền phê duyệt chính sách và nguồn lực. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 4 | Truyền thông và triển khai | Người thực hiện và người kiểm tra | Công bố phiên bản hiệu lực, đào tạo theo vai trò và lưu xác nhận đã đọc khi cần. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+## 4. Nguyên tắc an toàn thông tin
 
-### Lưu đồ
+1. **Quyền tối thiểu:** Chỉ cấp quyền cần thiết cho nhiệm vụ, đúng phạm vi và thời hạn.
+2. **Định danh cá nhân:** Dùng tài khoản riêng khi khả thi; không chia sẻ tài khoản/mật khẩu.
+3. **Phân loại dữ liệu:** Dữ liệu phải có owner, mục đích, phân loại, nơi lưu và quy tắc chia sẻ/lưu/xóa.
+4. **Bảo vệ theo vòng đời:** Kiểm soát từ tạo/thu thập đến sử dụng, chia sẻ, lưu giữ, bàn giao và tiêu hủy.
+5. **Thay đổi có kiểm soát:** Thay đổi hệ thống cần đánh giá tác động, phê duyệt, kiểm thử và rollback phù hợp.
+6. **Ghi nhận và giám sát:** Hành động trọng yếu phải có log/hồ sơ đủ để truy nguyên; log phải được bảo vệ.
+7. **Ứng cứu kịp thời:** Sự kiện nghi ngờ phải được báo cáo; không chờ chứng minh đầy đủ mới kích hoạt đánh giá sự cố.
+8. **Khôi phục có kiểm chứng:** Backup thành công không đồng nghĩa restore thành công; phải kiểm thử phục hồi theo mức rủi ro.
+9. **Quản lý bên thứ ba:** Quyền, dữ liệu, trách nhiệm, thông báo và kết thúc quan hệ phải được kiểm soát theo hợp đồng.
+10. **Cải tiến liên tục:** Sai lệch, sự cố, audit và KPI phải dẫn đến hành động có owner/hạn và kiểm tra hiệu lực.
 
-```mermaid
-flowchart TD
-  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
-  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
-  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
-  F1 --> S1
-  D1 -- Có --> S2["Soạn chính sách và mục tiêu"]
-  S2 --> S3["Thẩm định và phê duyệt"]
-  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
-  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
-  RISK --> S4["Truyền thông và triển khai"]
-  D2 -- Không --> S4
-  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
-  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
-  R --> S3
-  D3 -- Có --> Z([Kết thúc])
-```
+## 5. Vai trò và trách nhiệm
 
-### Biểu mẫu và hồ sơ
-
-- FR-POLISMS01-01: Phiếu yêu cầu/checklist khởi tạo.
-- FR-POLISMS01-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
-- FR-POLISMS01-03: Nhật ký thực hiện/biên bản/báo cáo.
-- FR-POLISMS01-04: Xác nhận hoàn tất và theo dõi việc tồn.
-
-*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
-
-### KPI và giám sát
-
-- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
-- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
-- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
-- Tỷ lệ hành động khắc phục đóng đúng hạn.
-
-Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
-
-### Ngoại lệ và an toàn thông tin
-
-Công bố phiên bản hiệu lực, đào tạo theo vai trò và lưu xác nhận đã đọc khi cần.
-
-- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
-- Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
-- Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
-
-### Phụ lục cần cấu hình theo khách hàng
-
-| Trường | Nội dung xác nhận |
+| Vai trò | Trách nhiệm |
 |---|---|
-| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
-| Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
-| Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận và thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
+| Ban Giám đốc/người được ủy quyền | Phê duyệt chính sách, phạm vi, mục tiêu, nguồn lực và chấp nhận rủi ro thuộc thẩm quyền. |
+| ISMS Owner | Điều phối hệ thống quản lý ATTT, rủi ro, SoA, audit, CAPA và xem xét lãnh đạo. |
+| IT Lead/Service Owner | Triển khai kiểm soát kỹ thuật/vận hành, quản lý dịch vụ và báo cáo hiệu lực. |
+| Owner tài sản/dữ liệu | Phân loại, xác định nhu cầu truy cập, phê duyệt trong thẩm quyền và rà soát quyền. |
+| HR | Quản lý sự kiện nhân sự, cam kết, đào tạo và thông báo cho IT theo kênh chính thức. |
+| Sale/Contract Owner/Legal | Rà soát phạm vi, cam kết thương mại, hợp đồng, nghĩa vụ thông báo và yêu cầu pháp lý. |
+| Nhân viên/nhà thầu | Tuân thủ chính sách, bảo vệ thông tin, dùng quyền đúng mục đích và báo sự cố/sai lệch. |
+| Nhà cung cấp | Tuân thủ yêu cầu bảo mật/hợp đồng và phối hợp theo phạm vi được duyệt. |
 
-**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+Vai trò cụ thể và quyền phê duyệt được xác định trong MA-01 (RACI), MA-02 (RBAC) và ma trận thẩm quyền. Khi không thể tách nhiệm vụ, phải có kiểm soát bù trừ và rà soát độc lập.
 
----
+## 6. Các chính sách kiểm soát tối thiểu
 
-## Bộ biểu mẫu đi kèm
+### 6.1 Tài sản và cấu hình
+Mọi tài sản trọng yếu phải có mã, owner, trạng thái và vòng đời được theo dõi. Cấu hình chuẩn phải được phê duyệt, bảo vệ và rà soát. Tài sản mất/hỏng hoặc sai lệch phải có hồ sơ xử lý.
 
-Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu POL-ISMS-01](../../bieu-mau/POL-ISMS-01-Bieu-mau.md).
+### 6.2 Danh tính và quyền truy cập
+Cấp/đổi/thu hồi quyền theo QT-IT-11; quyền đặc quyền theo QT-ATTT-01. Phải có yêu cầu hợp lệ, phê duyệt, MFA khi hỗ trợ, quyền tối thiểu, rà soát định kỳ và bằng chứng thu hồi. Tài khoản khẩn cấp cần kiểm soát riêng và hậu kiểm.
+
+### 6.3 Mật khẩu và bí mật kỹ thuật
+Secret phải lưu trong vault/kho được duyệt, không đưa vào mã nguồn, ticket, email/chat thường hoặc tài liệu công khai. Secret bị lộ phải được đánh giá và xoay vòng/thu hồi; xóa nội dung hiển thị không đủ để xử lý.
+
+### 6.4 Phân loại và xử lý dữ liệu
+Dữ liệu có owner, mục đích và phân loại. Chia sẻ theo nguyên tắc tối thiểu, dùng kênh được duyệt, xác minh người nhận và tuân thủ hợp đồng. Dữ liệu khách hàng không được dùng cho mục đích khác hoặc đưa vào công cụ bên ngoài nếu chưa được phép.
+
+### 6.5 Vận hành, thay đổi và giám sát
+Ticket/Work Item, change, cấu hình, cảnh báo, backup và bảo trì phải có owner, tiêu chí và bằng chứng. Thay đổi sản xuất theo QT-IT-13; giám sát theo QT-IT-15; SLA theo QT-IT-16 và phụ lục khách hàng.
+
+### 6.6 Nhật ký, bằng chứng và lưu hồ sơ
+Hệ thống trọng yếu phải ghi log phù hợp; quyền truy cập log bị hạn chế. Hồ sơ được lưu ở kho chính thức, có kiểm soát phiên bản/quyền và retention theo danh mục, hợp đồng, pháp luật đã rà soát. Không xóa hồ sơ đang thuộc điều tra, tranh chấp hoặc legal hold.
+
+### 6.7 Lỗ hổng và thiết bị đầu cuối
+Lỗ hổng được xác minh, đánh giá rủi ro, ưu tiên và khắc phục theo kế hoạch đã duyệt. Endpoint phải đáp ứng baseline, cập nhật, bảo vệ malware, mã hóa và kiểm soát quyền phù hợp.
+
+### 6.8 Mạng, nhà cung cấp và dịch vụ khách hàng
+Rule firewall/VPN phải có mục đích, phạm vi tối thiểu, phê duyệt, thời hạn và rà soát. Vendor phải được đánh giá theo rủi ro, hợp đồng và quyền truy cập. Dịch vụ khách hàng phải có phụ lục phạm vi/SLA/đầu mối/quyền/dữ liệu/incident/backup/exit.
+
+### 6.9 Sự cố và liên tục hoạt động
+Sự kiện nghi ngờ phải được ghi nhận và chuyển QT-ATTT-04. BCP/DR cần xác định dịch vụ trọng yếu, đầu mối, RTO/RPO được phê duyệt và phương án đã diễn tập. Không công bố thời hạn thông báo hoặc mục tiêu khôi phục chung khi chưa xác minh.
+
+### 6.10 Nhân sự và nhận thức
+Onboarding, điều chuyển, offboarding, bàn giao kiến thức và đào tạo phải được kiểm soát theo QT-HR-01 đến QT-HR-05. Quyền và tài sản phải được cấp/thu hồi đúng thời điểm; thông tin nhân sự được bảo vệ theo nguyên tắc cần biết.
+
+## 7. Quản lý rủi ro, ngoại lệ và không phù hợp
+
+Rủi ro được quản lý theo QT-ISMS-01 và sổ đăng ký rủi ro; kiểm soát áp dụng/loại trừ được ghi trong SoA đã được rà soát. Ngoại lệ theo QT-ISMS-04 phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và ngày hết hạn.
+
+Vi phạm, kiểm soát không hiệu lực hoặc hành động quá hạn phải được ghi nhận, phân tích nguyên nhân và xử lý theo CAPA. Không tự chấp nhận rủi ro vượt thẩm quyền; rủi ro tồn dư phải được trình đúng cấp.
+
+## 8. Đào tạo, truyền thông và tuân thủ
+
+Chính sách được công bố qua kho tài liệu chính thức. Nhân sự và bên liên quan được đào tạo theo vai trò, xác nhận đã đọc/hiểu khi yêu cầu và được hướng dẫn cách báo sự cố. Vi phạm được xử lý theo quy định nội bộ và hợp đồng; mọi xử lý phải phù hợp thẩm quyền và pháp luật.
+
+## 9. Theo dõi, đánh giá và xem xét lãnh đạo
+
+ISMS Owner/IT Lead theo dõi rủi ro, KPI, sự cố, audit, CAPA, nhà cung cấp và phản hồi khách hàng. Chương trình kiểm tra nội bộ và xem xét lãnh đạo phải ghi đầu vào, quyết định, owner, hạn và bằng chứng theo QT-ISMS-05/06.
+
+Chính sách được rà soát tối thiểu hằng năm và khi thay đổi đáng kể về tổ chức, công nghệ, dịch vụ, hợp đồng, rủi ro hoặc yêu cầu pháp lý. Phiên bản mới phải được phê duyệt, truyền thông và thu hồi bản cũ khỏi nơi sử dụng.
+
+## 10. Tài liệu liên quan
+
+- QT-ISMS-01 đến QT-ISMS-06: rủi ro, tài liệu, nghĩa vụ, ngoại lệ, audit, xem xét lãnh đạo.
+- QT-ATTT-01 đến QT-ATTT-10: kiểm soát kỹ thuật và vận hành ATTT.
+- QT-IT-07 đến QT-IT-16: phối hợp và vận hành dịch vụ IT.
+- QT-OPS-01 đến QT-OPS-03; QT-BCP-01/02; QT-HR-01 đến QT-HR-05; QT-CS-01 đến QT-CS-03.
+- MA-01, MA-02, REG-01 đến REG-04, CAL-01, CHECK-01, KPI-01 và phụ lục khách hàng.
+
+## 11. Phê duyệt
+
+| Vai trò | Họ tên/chức danh | Ngày | Xác nhận |
+|---|---|---|---|
+| Người soạn | Điền khi trình ký | | |
+| Người rà soát | Điền khi trình ký | | |
+| Người phê duyệt | Ban Giám đốc/người được ủy quyền | | |
+
+**Tuyên bố:** Chính sách này là dự thảo quản trị. Việc ban hành không tự chứng minh Mstar đã được chứng nhận ISO/IEC 27001. Cần xác định phạm vi ISMS, đánh giá rủi ro, SoA, yêu cầu hợp đồng/pháp lý, kiểm soát thực tế và bằng chứng vận hành trước khi kết luận tuân thủ.
