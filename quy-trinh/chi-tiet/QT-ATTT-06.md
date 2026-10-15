@@ -1,96 +1,144 @@
-# QT-ATTT-06 — Quản lý lỗ hổng và bản vá
+# QT-ATTT-06 — QUẢN LÝ LỖ HỔNG VÀ BẢN VÁ
 
-Tài liệu chi tiết được quản lý trong danh mục quy trình Mstar.
+> **Trạng thái:** Dự thảo nâng cấp v0.2; cần rà soát, chạy thử và phê duyệt trước khi áp dụng.  
+> **Chủ sở hữu:** Đầu mối ATTT / IT Lead theo phân công.  
+> **Liên quan:** QT-IT-08, QT-IT-11, QT-IT-13, QT-ATTT-04, QT-ISMS-03/04, REG-01, MA-01, MA-02.
 
-## QT-ATTT-06 — Quản lý lỗ hổng và bản vá
+## 1. Kiểm soát tài liệu
+| Trường | Nội dung |
+|---|---|
+| Mã | QT-ATTT-06 |
+| Phiên bản | 0.2 — dự thảo nâng cấp |
+| Chủ sở hữu | Đầu mối ATTT / IT Lead |
+| Người rà soát | Chủ hệ thống và các bên liên quan |
+| Người phê duyệt | Người có thẩm quyền theo quản trị tài liệu |
+| Ngày hiệu lực | Điền sau khi phê duyệt |
+| Rà soát | Tối thiểu hằng năm và sau sự cố/thay đổi trọng yếu |
 
-**Mục đích:** Ưu tiên khắc phục lỗ hổng theo mức nghiêm trọng, khả năng khai thác, phơi nhiễm và tác động.
+## 2. Mục đích và phạm vi
+Phát hiện, phân loại, ưu tiên, khắc phục và xác minh lỗ hổng theo mức rủi ro, khả năng khai thác và mức trọng yếu hệ thống.
+Áp dụng cho hệ thống, dữ liệu và hoạt động thuộc Mstar hoặc thuộc khách hàng mà Mstar được ủy quyền. Phụ lục khách hàng xác định phạm vi, công cụ, người phê duyệt, SLA, nơi lưu và thời hạn lưu. Không thực hiện kiểm tra/truy xuất dữ liệu ngoài phạm vi được duyệt.
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
+## 3. Nguyên tắc bắt buộc
+1. Chỉ thực hiện trong phạm vi quyền và mục đích được ủy quyền.
+2. Áp dụng quyền tối thiểu, phân tách nhiệm vụ và lưu lịch sử thao tác.
+3. Không lưu secret dạng rõ hoặc đưa dữ liệu nhạy cảm vào repository/tài liệu dùng chung.
+4. Khi nghi ngờ sự cố ATTT, kích hoạt QT-ATTT-04; bảo toàn bằng chứng trước hành động có thể làm mất dấu vết.
+5. Ngoại lệ phải có đánh giá rủi ro, biện pháp bù trừ, owner, thời hạn và người phê duyệt.
+6. Không tự đặt thời hạn xử lý/retention chung khi chưa có chính sách, hợp đồng hoặc ma trận đã duyệt.
 
-**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
+## 4. Vai trò
+| Vai trò | Trách nhiệm |
+|---|---|
+| Người yêu cầu/tiếp nhận | Ghi nhận yêu cầu, xác minh phạm vi và thông tin đầu vào. |
+| Người thực hiện | Thực hiện theo hướng dẫn, ghi nhật ký và báo sai lệch. |
+| Owner hệ thống/dữ liệu | Xác nhận phạm vi, rủi ro, quyền và tiêu chí đạt. |
+| Đầu mối ATTT | Đánh giá rủi ro, điều phối ứng phó và kiểm tra bằng chứng. |
+| IT Lead | Phê duyệt trong thẩm quyền, điều phối nguồn lực và chuyển cấp. |
+| Đầu mối khách hàng/Legal | Xác nhận nghĩa vụ hợp đồng/pháp lý và phê duyệt khi cần. |
 
-**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
+## 5. Đầu vào và điều kiện bắt đầu
+Hồ sơ phải xác định đối tượng, mục đích, phạm vi, người yêu cầu, owner, quyền cần dùng, người phê duyệt, công cụ, tiêu chí hoàn thành và nơi lưu bằng chứng. Nếu thiếu thông tin trọng yếu, chuyển Chờ xác nhận; không thực hiện hành động có thể ảnh hưởng dữ liệu/hệ thống khi chưa rõ thẩm quyền.
 
-**Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
+## 6. Trình tự thực hiện chi tiết
 
-**Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
+### Bước 1 — Lập danh mục tài sản và nguồn phát hiện
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
 
-### Trình tự thực hiện
+Đối chiếu phạm vi tài sản/CI với nguồn quét lỗ hổng, cảnh báo vendor, thông báo bảo mật, EDR/cloud và kiểm tra thủ công. Ghi hệ thống, phiên bản, thời điểm phát hiện, nguồn, bằng chứng, mức độ tin cậy và owner. Không quét hệ thống khách hàng nếu chưa có ủy quyền/phạm vi rõ.
 
-| Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
-|---:|---|---|---|---|
-| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 2 | Xác minh/ưu tiên | Người thực hiện và người kiểm tra | Xác nhận áp dụng, exposure, exploit, tác động và hạn khắc phục. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 3 | Chọn phương án | Người thực hiện và người kiểm tra | Vá, nâng cấp, giảm thiểu, cô lập hoặc ngoại lệ có thời hạn; đánh giá backup/rollback. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 4 | Triển khai có kiểm soát | Người thực hiện và người kiểm tra | Thực hiện change, thử nghiệm, phê duyệt và thông báo cần thiết. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
 
-### Lưu đồ
+### Bước 2 — Xác minh phát hiện
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
 
+Loại bỏ false positive bằng cách kiểm tra phiên bản, cấu hình, điều kiện khai thác và bằng chứng. Ghi cách xác minh; không đóng lỗ hổng chỉ vì không tái hiện được trong một lần thử. Nếu phát hiện có dấu hiệu đã bị khai thác, kích hoạt QT-ATTT-04.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+### Bước 3 — Đánh giá rủi ro và ưu tiên
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
+
+Cân nhắc mức nghiêm trọng từ nguồn đáng tin cậy, khả năng khai thác thực tế, phơi nhiễm Internet, dữ liệu, quyền hệ thống, mức trọng yếu, biện pháp bù trừ và yêu cầu hợp đồng. Gán owner, hạn xử lý theo ma trận đã duyệt; không áp dụng một SLA vá chung nếu chưa được phê duyệt.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+### Bước 4 — Lập kế hoạch khắc phục
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
+
+Chọn bản vá, nâng cấp, cấu hình giảm thiểu, cô lập hoặc chấp nhận rủi ro có thời hạn. Đánh giá tương thích, downtime, phụ thuộc, backup, test và rollback; thay đổi sản xuất phải theo QT-IT-13. Với hệ thống không thể vá, ghi lý do, biện pháp bù trừ, người chấp nhận rủi ro và ngày đánh giá lại.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+### Bước 5 — Thực hiện khắc phục
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
+
+Thực hiện trong cửa sổ được duyệt; ghi phiên bản/cấu hình trước-sau, người làm, thời điểm và kết quả. Theo dõi lỗi dịch vụ, cảnh báo và khả năng rollback. Nếu phát sinh sự cố hoặc nghi ngờ khai thác, dừng theo điểm an toàn và kích hoạt quy trình liên quan.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+### Bước 6 — Xác minh đóng lỗ hổng
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
+
+Quét/kiểm tra lại bằng phương pháp phù hợp; xác minh phiên bản, cấu hình hoặc điều kiện đã khắc phục. Lưu bằng chứng sau xử lý, ngày kiểm tra và người xác nhận. Nếu chưa xác minh được, giữ trạng thái đang xử lý hoặc chờ kiểm chứng; không đóng chỉ vì đã cài bản vá.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+### Bước 7 — Theo dõi ngoại lệ và xu hướng
+**Người thực hiện:** Người được phân công; owner hệ thống/ATTT rà soát theo mức độ.
+
+Rà soát lỗ hổng quá hạn, hệ thống không được hỗ trợ, lặp lại, không có owner và ngoại lệ sắp hết hạn. Báo cáo xu hướng theo tài sản/owner/khách hàng, mở CAPA khi nguyên nhân hệ thống, và yêu cầu quyết định gia hạn/từ chối rủi ro trước ngày hết hạn.
+
+**Điều kiện đạt:** Kết quả được xác minh và hồ sơ truy nguyên được. **Nếu không đạt:** Giữ trạng thái chưa hoàn tất, ghi sai lệch, owner khắc phục và hạn xử lý.
+
+## 7. Xử lý ngoại lệ và chuyển cấp
+Chuyển cấp khi phát hiện truy cập trái phép, secret bị lộ, dữ liệu có nguy cơ lộ/mất, log bị can thiệp, lỗ hổng có thể đã bị khai thác, không thể kiểm soát quyền, thiếu phê duyệt bắt buộc hoặc có rủi ro ảnh hưởng nhiều hệ thống/khách hàng. Ghi mã hồ sơ, thời điểm, phạm vi, bằng chứng, việc đã làm, tác động, người nhận và quyết định cần thiết.
+
+## 8. Bằng chứng tối thiểu
+| Bằng chứng | Nội dung |
+|---|---|
+| Yêu cầu/phạm vi | Người yêu cầu, đối tượng, mục đích và thẩm quyền |
+| Cấu hình/kiểm tra ban đầu | Nguồn, thời điểm, trạng thái và phương pháp |
+| Phê duyệt | Người duyệt, thời gian, phạm vi, điều kiện |
+| Nhật ký thực hiện | Người làm, thao tác, kết quả, sai lệch |
+| Kiểm tra sau xử lý | Tiêu chí, kết quả, bằng chứng và người xác nhận |
+| Ngoại lệ/CAPA | Rủi ro, biện pháp bù trừ, owner, hạn, kiểm tra hiệu lực |
+
+Lưu trong kho chính thức, hạn chế quyền theo nguyên tắc cần biết và thời hạn theo danh mục hồ sơ/hợp đồng. Bằng chứng sự cố phải giữ chain of custody khi áp dụng.
+
+## 9. KPI và giám sát
+| KPI | Định nghĩa |
+|---|---|
+| Tỷ lệ hồ sơ đủ | Hồ sơ đạt checklist / hồ sơ được lấy mẫu |
+| Tỷ lệ xử lý đúng hạn | Hạng mục hoàn tất đúng hạn / hạng mục đến hạn theo chính sách đã duyệt |
+| Hạng mục quá hạn | Số lượng và tuổi tồn, phân theo mức độ |
+| Sai lệch lặp lại | Số sai lệch tái diễn cùng nguyên nhân |
+| Hành động khắc phục đúng hạn | Hành động hoàn tất đúng hạn / hành động đến hạn |
+
+Phải chốt công thức, nguồn, kỳ đo và ngưỡng trước khi báo cáo. Không loại các trường hợp chưa xử lý khỏi mẫu đo chỉ vì thiếu dữ liệu.
+
+## 10. Lưu đồ
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
-  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
-  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
-  F1 --> S1
-  D1 -- Có --> S2["Xác minh/ưu tiên"]
-  S2 --> S3["Chọn phương án"]
-  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
-  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
-  RISK --> S4["Triển khai có kiểm soát"]
-  D2 -- Không --> S4
-  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
-  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
-  R --> S3
-  D3 -- Có --> Z([Kết thúc])
+ A([Yêu cầu/sự kiện phát sinh]) --> B[Ghi nhận và xác định phạm vi]
+ B --> C{Đúng thẩm quyền và đủ thông tin?}
+ C -- Không --> D[Chờ xác minh / chuyển cấp]
+ D --> C
+ C -- Có --> E[Đánh giá và thực hiện kiểm soát]
+ E --> F[Kiểm tra kết quả]
+ F --> G{Đạt tiêu chí?}
+ G -- Không --> H[Khắc phục / ứng cứu / ghi ngoại lệ]
+ H --> E
+ G -- Có --> I[Lưu bằng chứng, đóng hồ sơ]
+ I --> J[Rà soát xu hướng và cải tiến]
 ```
 
-### Biểu mẫu và hồ sơ
+## 11. Điều kiện ban hành
+- [ ] Xác định owner, công cụ, người phê duyệt và phạm vi.
+- [ ] Chốt thời hạn/retention theo chính sách và hợp đồng.
+- [ ] Đối chiếu biểu mẫu và nơi lưu bằng chứng.
+- [ ] Chạy thử tình huống bình thường, ngoại lệ và chuyển cấp.
+- [ ] Ghi nhận/khắc phục sai lệch, đào tạo người thực hiện.
+- [ ] Phê duyệt và công bố phiên bản hiệu lực.
 
-- FR-QTATTT06-01: Phiếu yêu cầu/checklist khởi tạo.
-- FR-QTATTT06-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
-- FR-QTATTT06-03: Nhật ký thực hiện/biên bản/báo cáo.
-- FR-QTATTT06-04: Xác nhận hoàn tất và theo dõi việc tồn.
-
-*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
-
-### KPI và giám sát
-
-- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
-- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
-- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
-- Tỷ lệ hành động khắc phục đóng đúng hạn.
-
-Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
-
-### Ngoại lệ và an toàn thông tin
-
-Thực hiện change, thử nghiệm, phê duyệt và thông báo cần thiết.
-
-- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
-- Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
-- Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
-
-### Phụ lục cần cấu hình theo khách hàng
-
-| Trường | Nội dung xác nhận |
-|---|---|
-| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
-| Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
-| Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận và thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
-
-**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
-
----
-
-## Bộ biểu mẫu đi kèm
-
-Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-ATTT-06](../../bieu-mau/QT-ATTT-06-Bieu-mau.md).
+**Lưu ý:** Tài liệu là dự thảo kiểm soát ATTT, không tự chứng minh chứng nhận ISO; phải phù hợp phạm vi ISMS, đánh giá rủi ro, SoA, hợp đồng và pháp luật áp dụng.
