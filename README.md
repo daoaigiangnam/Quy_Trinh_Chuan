@@ -195,3 +195,12 @@ Các nội dung hiện là **dự thảo v0.1**, chưa phải quy trình đã ba
 - [Mở thư mục quy trình chi tiết](quy-trinh/chi-tiet/)
 
 Mỗi file riêng chứa nội dung quy trình và lưu đồ Mermaid tương ứng. Các tài liệu nhóm vẫn được duy trì để đọc theo chủ đề.
+
+## 11. Thư viện biểu mẫu đi kèm
+
+Đã bổ sung bộ biểu mẫu cho từng quy trình, gồm các trường cần điền, bảng ghi nhận, phần rà soát/phê duyệt và checklist đóng hồ sơ.
+
+- [Mở thư viện biểu mẫu chuẩn Mstar](bieu-mau/README.md)
+- [Mở thư mục biểu mẫu](bieu-mau/)
+
+Các biểu mẫu đang là dự thảo v0.1; cần rà soát, thử nghiệm và phê duyệt trước khi ban hành. SLA, quyền, thời hạn thông báo, lưu giữ và RTO/RPO phải được cấu hình theo hợp đồng từng khách hàng.
