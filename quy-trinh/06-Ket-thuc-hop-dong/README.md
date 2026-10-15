@@ -11,6 +11,20 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Danh mục quy trình chi tiết thuộc nhóm Kết thúc hợp đồng và cải tiến:
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| QT-CS-01 | [Kết thúc hợp đồng dịch vụ](../chi-tiet/QT-CS-01.md) |
+| QT-CS-02 | [Bàn giao hệ thống và nhà cung cấp](../chi-tiet/QT-CS-02.md) |
+| QT-CS-03 | [Thu hồi quyền và trả/xóa dữ liệu](../chi-tiet/QT-CS-03.md) |
+
+Mở [danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md). Các tài liệu vẫn là dự thảo, chỉ áp dụng sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
