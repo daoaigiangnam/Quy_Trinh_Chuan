@@ -11,6 +11,28 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Danh mục quy trình chi tiết thuộc nhóm An toàn thông tin:
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| QT-IT-11 | [Quản lý tài khoản và quyền truy cập](../chi-tiet/QT-IT-11.md) |
+| QT-ATTT-01 | [Quản lý tài khoản đặc quyền](../chi-tiet/QT-ATTT-01.md) |
+| QT-ATTT-02 | [Quản lý bí mật kỹ thuật](../chi-tiet/QT-ATTT-02.md) |
+| QT-ATTT-03 | [Phân loại và xử lý dữ liệu](../chi-tiet/QT-ATTT-03.md) |
+| QT-ATTT-04 | [Ứng cứu sự cố an toàn thông tin](../chi-tiet/QT-ATTT-04.md) |
+| QT-ATTT-05 | [Quản lý log và bằng chứng](../chi-tiet/QT-ATTT-05.md) |
+| QT-ATTT-06 | [Quản lý lỗ hổng và bản vá](../chi-tiet/QT-ATTT-06.md) |
+| QT-ATTT-07 | [Bảo vệ thiết bị đầu cuối](../chi-tiet/QT-ATTT-07.md) |
+| QT-ATTT-08 | [Quản lý mạng, firewall và VPN](../chi-tiet/QT-ATTT-08.md) |
+| QT-ATTT-09 | [Quản lý nhà cung cấp](../chi-tiet/QT-ATTT-09.md) |
+| QT-ATTT-10 | [Bảo vệ dữ liệu khách hàng](../chi-tiet/QT-ATTT-10.md) |
+
+Mở [danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md). Các tài liệu vẫn là dự thảo, chỉ áp dụng sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
