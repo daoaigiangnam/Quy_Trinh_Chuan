@@ -1,96 +1,145 @@
-# QT-ISMS-04 — Quản lý ngoại lệ an toàn thông tin
+# QT-ISMS-04 — QUẢN LÝ NGOẠI LỆ AN TOÀN THÔNG TIN
 
-Tài liệu chi tiết được quản lý trong danh mục quy trình Mstar.
+> **Trạng thái:** Dự thảo nâng cấp v0.2; cần rà soát, chạy thử và phê duyệt trước khi áp dụng.  
+> **Chủ sở hữu:** Owner quy trình / ISMS Owner / IT Lead theo phân công.  
+> **Liên quan:** QT-ISMS-01 đến QT-ISMS-06, QT-ATTT-04, REG-01/02/03/04, MA-01, MA-02.
 
-## QT-ISMS-04 — Quản lý ngoại lệ an toàn thông tin
+## 1. Kiểm soát tài liệu
 
-**Mục đích:** Kiểm soát trường hợp tạm thời không đáp ứng chính sách/kiểm soát bằng đánh giá rủi ro, bù trừ và thời hạn.
+| Trường | Nội dung |
+|---|---|
+| Mã | QT-ISMS-04 |
+| Phiên bản | 0.2 — dự thảo nâng cấp |
+| Chủ sở hữu | Owner quy trình được phân công |
+| Người rà soát | IT Lead/ISMS Owner và bên liên quan |
+| Người phê duyệt | Người có thẩm quyền theo quản trị tài liệu |
+| Ngày hiệu lực | Điền sau khi phê duyệt |
+| Rà soát | Tối thiểu hằng năm và khi có thay đổi trọng yếu |
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
+## 2. Mục đích và phạm vi
 
-**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
+QUẢN LÝ NGOẠI LỆ AN TOÀN THÔNG TIN. Áp dụng trong phạm vi ISMS và hoạt động Mstar/khách hàng liên quan. Các tiêu chí, nghĩa vụ, thời hạn và quyền phê duyệt phải lấy từ nguồn đã được xác minh; không tự đặt nghĩa vụ pháp lý hoặc cam kết hợp đồng.
 
-**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
+## 3. Nguyên tắc bắt buộc
 
-**Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
+1. Xác định rõ owner, phạm vi, tiêu chí và người có thẩm quyền.
+2. Dùng bằng chứng khách quan; phân biệt dữ kiện, giả định và nhận định.
+3. Không coi tài liệu được viết là bằng chứng kiểm soát đã vận hành.
+4. Người thực hiện không tự chấp nhận rủi ro trọng yếu do mình tạo ra.
+5. Mọi hành động khắc phục có owner, hạn, tiêu chí hoàn thành và kiểm tra hiệu lực.
+6. Không sửa/xóa hồ sơ để che giấu sai lệch; mọi sửa đổi phải truy nguyên được.
 
-**Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
+## 4. Vai trò
 
-### Trình tự thực hiện
+| Vai trò | Trách nhiệm |
+|---|---|
+| Owner quy trình | Duy trì quy trình, biểu mẫu, hồ sơ và cải tiến. |
+| Người thực hiện | Thu thập thông tin, thực hiện kiểm soát và lưu bằng chứng. |
+| Người rà soát | Kiểm tra căn cứ, rủi ro, tính đầy đủ và hiệu lực. |
+| Người phê duyệt | Quyết định trong phạm vi thẩm quyền, ghi điều kiện và lý do. |
+| ISMS Owner/IT Lead | Điều phối, theo dõi tuân thủ và báo cáo. |
+| Khách hàng/Legal/Sale/HR | Tham gia khi liên quan đến hợp đồng, pháp lý, nhân sự hoặc thương mại. |
 
-| Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
-|---:|---|---|---|---|
-| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh khách hàng/hệ thống liên quan, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 2 | Đánh giá rủi ro | Người thực hiện và người kiểm tra | Xác định tác động, khả năng, dữ liệu/hệ thống và nghĩa vụ khách hàng bị ảnh hưởng. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 3 | Xác định biện pháp bù trừ | Người thực hiện và người kiểm tra | Giới hạn phạm vi, giám sát bổ sung, phương án khắc phục và ngày hết hạn. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 4 | Phê duyệt hoặc từ chối | Người thực hiện và người kiểm tra | Người có thẩm quyền đánh giá rủi ro tồn dư; lấy chấp thuận khách hàng khi cần. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+## 5. Đầu vào và điều kiện bắt đầu
 
-### Lưu đồ
+Hồ sơ phải xác định mục tiêu, phạm vi, dữ liệu nguồn, người chịu trách nhiệm, tiêu chí đánh giá, người phê duyệt và nơi lưu. Nếu thiếu căn cứ hoặc có xung đột giữa quy trình, hợp đồng và yêu cầu pháp lý, ghi điểm cần xác minh và chuyển người có thẩm quyền; không tự chọn cách diễn giải thuận tiện.
+
+## 6. Trình tự thực hiện chi tiết
+
+### Bước 1 — Tiếp nhận đề nghị ngoại lệ
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Người đề nghị nêu kiểm soát không thể đáp ứng, lý do, phạm vi, thời hạn, hệ thống/khách hàng, tác động kinh doanh và phương án thay thế. Ngoại lệ không được dùng để hợp thức hóa hành vi đã xảy ra hoặc bỏ qua phê duyệt.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+### Bước 2 — Đánh giá rủi ro
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Owner và ATTT đánh giá mối đe dọa, khả năng, tác động, dữ liệu, quyền, nghĩa vụ hợp đồng/pháp lý và hậu quả nếu ngoại lệ bị khai thác. Ghi rủi ro ban đầu, kiểm soát hiện có và rủi ro tồn dư; xác định có cần khách hàng/Legal tham gia.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+### Bước 3 — Xây dựng biện pháp bù trừ
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Nêu kiểm soát thay thế, cách vận hành, người giám sát, bằng chứng, tần suất, điều kiện dừng và phương án đưa về chuẩn. Biện pháp phải cụ thể và kiểm tra được, không chỉ ghi “theo dõi chặt chẽ”.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+### Bước 4 — Phê duyệt
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Chỉ người có thẩm quyền theo mức rủi ro được chấp nhận ngoại lệ. Người đề nghị/người thực hiện không tự phê duyệt rủi ro trọng yếu của mình. Ghi quyết định, lý do, phạm vi, điều kiện, ngày hiệu lực và ngày hết hạn.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+### Bước 5 — Theo dõi và nhắc hạn
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Đăng ký ngoại lệ vào sổ, gán owner/hạn, cảnh báo trước ngày hết hạn và kiểm tra biện pháp bù trừ. Nếu rủi ro tăng hoặc biện pháp không hoạt động, tạm dừng ngoại lệ/chuyển cấp và áp dụng phương án an toàn.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+### Bước 6 — Gia hạn hoặc đóng
+**Người thực hiện:** Owner quy trình và các vai trò được chỉ định.
+
+Gia hạn phải đánh giá lại rủi ro và phê duyệt mới trước ngày hết hạn; không tự gia hạn. Đóng khi kiểm soát chuẩn được khôi phục hoặc ngoại lệ chấm dứt, có bằng chứng và người kiểm tra xác nhận.
+
+**Điều kiện đạt:** Có căn cứ, người chịu trách nhiệm, quyết định và bằng chứng truy nguyên. **Nếu không đạt:** Ghi sai lệch, giao owner/hạn và chuyển cấp theo thẩm quyền.
+
+## 7. Ngoại lệ và chuyển cấp
+
+Chuyển cấp khi thiếu thẩm quyền, rủi ro vượt ngưỡng, nghĩa vụ chưa rõ, bằng chứng thiếu/bị can thiệp, hành động quá hạn hoặc kiểm soát không hiệu lực. Ghi căn cứ, tác động, người nhận, quyết định cần thiết và hạn phản hồi. Ngoại lệ phải có rủi ro, biện pháp bù trừ, owner, ngày hết hạn và người phê duyệt.
+
+## 8. Bằng chứng và lưu hồ sơ
+
+| Hồ sơ | Nội dung tối thiểu |
+|---|---|
+| Yêu cầu/đầu vào | Mục tiêu, phạm vi, nguồn và người yêu cầu |
+| Đánh giá/rà soát | Tiêu chí, căn cứ, phát hiện và người rà soát |
+| Quyết định/phê duyệt | Người quyết định, thời điểm, điều kiện và lý do |
+| Nhật ký thực hiện | Hoạt động, kết quả, sai lệch và việc tiếp theo |
+| Báo cáo/khắc phục | Trạng thái, owner, hạn, kiểm tra hiệu lực |
+
+Lưu theo danh mục hồ sơ, hợp đồng và pháp luật đã được rà soát. Không xóa hồ sơ thuộc điều tra/tranh chấp/legal hold; không lưu secret dạng rõ.
+
+## 9. KPI và giám sát
+
+| KPI | Định nghĩa |
+|---|---|
+| Tỷ lệ hồ sơ đủ | Hồ sơ đáp ứng checklist / hồ sơ được lấy mẫu |
+| Hành động quá hạn | Số hành động đến hạn chưa hoàn tất |
+| Tỷ lệ rà soát đúng hạn | Hồ sơ/tài liệu được rà soát đúng hạn / số đến hạn |
+| Tỷ lệ tái diễn | Sai lệch lặp lại cùng nguyên nhân |
+| Tỷ lệ khắc phục hiệu lực | Hành động có bằng chứng hiệu lực / hành động được kiểm tra |
+
+Chốt công thức, nguồn, kỳ đo và ngưỡng cảnh báo trước khi áp dụng; không dùng chỉ số tổng hợp để che khuất rủi ro nghiêm trọng.
+
+## 10. Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
-  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
-  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
-  F1 --> S1
-  D1 -- Có --> S2["Đánh giá rủi ro"]
-  S2 --> S3["Xác định biện pháp bù trừ"]
-  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
-  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
-  RISK --> S4["Phê duyệt hoặc từ chối"]
-  D2 -- Không --> S4
-  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
-  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
-  R --> S3
-  D3 -- Có --> Z([Kết thúc])
+ A([Nhu cầu hoặc sự kiện]) --> B[Ghi nhận đầu vào và phạm vi]
+ B --> C{Đủ căn cứ và đúng thẩm quyền?}
+ C -- Không --> D[Bổ sung hoặc chuyển cấp]
+ D --> C
+ C -- Có --> E[Đánh giá và thực hiện kiểm soát]
+ E --> F[Rà soát kết quả và bằng chứng]
+ F --> G{Đạt tiêu chí?}
+ G -- Không --> H[Khắc phục hoặc ngoại lệ có kiểm soát]
+ H --> E
+ G -- Có --> I[Phê duyệt, lưu hồ sơ và báo cáo]
+ I --> J[Theo dõi và cải tiến]
 ```
 
-### Biểu mẫu và hồ sơ
+## 11. Điều kiện ban hành
 
-- FR-QTISMS04-01: Phiếu yêu cầu/checklist khởi tạo.
-- FR-QTISMS04-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
-- FR-QTISMS04-03: Nhật ký thực hiện/biên bản/báo cáo.
-- FR-QTISMS04-04: Xác nhận hoàn tất và theo dõi việc tồn.
+- [ ] Xác định owner, thẩm quyền và phạm vi.
+- [ ] Xác nhận tiêu chí/thời hạn theo nguồn được duyệt.
+- [ ] Đối chiếu biểu mẫu, danh mục và nơi lưu bằng chứng.
+- [ ] Chạy thử tình huống thường lệ và ngoại lệ.
+- [ ] Khắc phục sai lệch, đào tạo người liên quan và lưu bằng chứng.
+- [ ] Phê duyệt và công bố phiên bản hiệu lực.
 
-*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
-
-### KPI và giám sát
-
-- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
-- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
-- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
-- Tỷ lệ hành động khắc phục đóng đúng hạn.
-
-Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
-
-### Ngoại lệ và an toàn thông tin
-
-Người có thẩm quyền đánh giá rủi ro tồn dư; lấy chấp thuận khách hàng khi cần.
-
-- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
-- Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
-- Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
-
-### Phụ lục cần cấu hình theo khách hàng
-
-| Trường | Nội dung xác nhận |
-|---|---|
-| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
-| Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
-| Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận và thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
-
-**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
-
----
-
-## Bộ biểu mẫu đi kèm
-
-Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-ISMS-04](../../bieu-mau/QT-ISMS-04-Bieu-mau.md).
+**Lưu ý:** Dự thảo hỗ trợ quản trị ISMS/vận hành nhưng không tự chứng minh chứng nhận ISO; cần rà soát theo phạm vi ISMS, đánh giá rủi ro, SoA, hợp đồng và pháp luật áp dụng.
