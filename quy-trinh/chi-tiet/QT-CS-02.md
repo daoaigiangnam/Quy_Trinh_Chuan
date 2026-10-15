@@ -1,96 +1,158 @@
-# QT-CS-02 — Bàn giao hệ thống cho khách hàng/nhà cung cấp mới
+# QT-CS-02 — BÀN GIAO HỆ THỐNG CHO KHÁCH HÀNG/NHÀ CUNG CẤP MỚI
 
-Tài liệu chi tiết được quản lý trong danh mục quy trình Mstar.
+> **Trạng thái:** Dự thảo nâng cấp v0.2; cần rà soát, chạy thử và phê duyệt trước khi áp dụng.  
+> **Chủ sở hữu:** Contract Owner / Service Owner.  
+> **Liên quan:** QT-IT-08, QT-IT-11, QT-IT-12, QT-ATTT-04, QT-ISMS-02, MA-01, MA-02.
 
-## QT-CS-02 — Bàn giao hệ thống cho khách hàng/nhà cung cấp mới
+## 1. Kiểm soát tài liệu
 
-**Mục đích:** Chuyển giao hồ sơ, cấu hình, dữ liệu và quyền hợp lệ để bên nhận tiếp quản an toàn, giảm gián đoạn.
+| Trường | Nội dung |
+|---|---|
+| Mã | QT-CS-02 |
+| Phiên bản | 0.2 — dự thảo nâng cấp |
+| Chủ sở hữu | Contract Owner / Service Owner |
+| Người rà soát | IT Lead, ATTT và Legal khi liên quan |
+| Người phê duyệt | Người có thẩm quyền theo quản trị tài liệu/hợp đồng |
+| Ngày hiệu lực | Điền sau khi phê duyệt |
+| Chu kỳ rà soát | Khi có thay đổi hợp đồng và trước/sau kết thúc dịch vụ |
 
-**Kích hoạt:** Khi có yêu cầu/sự kiện thuộc phạm vi, khi có thay đổi đáng kể hoặc theo chu kỳ được quy định.
+## 2. Mục đích và phạm vi
 
-**Phạm vi:** Mstar và hoạt động IT Outsourcing trong phạm vi hợp đồng/ủy quyền. Phụ lục từng khách hàng phải xác định hệ thống, SLA, đầu mối, quyền truy cập, retention, thông báo và yêu cầu phục hồi riêng.
+Chuyển giao vận hành hoặc hệ thống sang khách hàng/nhà cung cấp khác mà vẫn bảo đảm tính toàn vẹn dữ liệu, bảo mật và liên tục dịch vụ.
 
-**Vai trò:** Người yêu cầu/đầu mối khách hàng; người thực hiện; người kiểm tra/chủ sở hữu hệ thống; chủ sở hữu quy trình; IT Lead; người phê duyệt theo ma trận thẩm quyền. Người thực hiện không tự phê duyệt rủi ro trọng yếu do chính mình tạo ra.
+Áp dụng theo hợp đồng/phụ lục và phạm vi ủy quyền. Không tự đặt thời hạn lưu, nghĩa vụ xóa hoặc thời hạn thông báo; phải đối chiếu hợp đồng, yêu cầu pháp lý đã được rà soát và quyết định người có thẩm quyền.
 
-**Đầu vào:** Yêu cầu/ticket; hợp đồng/phụ lục; danh mục hệ thống/tài sản; quyền được ủy quyền; quy trình liên quan; dữ liệu/bằng chứng hiện có.
+## 3. Nguyên tắc bắt buộc
 
-**Đầu ra:** Hồ sơ xử lý; kết quả đã xác minh; phê duyệt; ticket/biên bản đóng; việc tồn có owner và hạn.
+1. Xác minh phạm vi, chủ sở hữu và người nhận trước khi chuyển dữ liệu/tài sản hoặc thu hồi dịch vụ.
+2. Quyền truy cập phải được thu hồi hoặc có ủy quyền mới ghi nhận rõ; không để quyền tồn vô chủ.
+3. Kiểm tra legal hold/nghĩa vụ lưu trước khi xóa dữ liệu.
+4. Không ghi secret dạng rõ vào biên bản hoặc file bàn giao.
+5. Nếu nghi có truy cập trái phép hoặc rò rỉ dữ liệu, kích hoạt QT-ATTT-04 và bảo toàn bằng chứng.
+6. Mỗi việc tồn phải có owner, hạn và người chấp nhận rủi ro.
 
-### Trình tự thực hiện
+## 4. Vai trò
 
-| Bước | Hoạt động | Vai trò chính | Hướng dẫn và kiểm soát | Bằng chứng cần lưu |
-|---:|---|---|---|---|
-| 1 | Tiếp nhận và xác định phạm vi | Người tiếp nhận | Ghi nhận yêu cầu/sự kiện, xác minh hệ thống, mục tiêu, phạm vi hợp đồng, đầu mối và thông tin tối thiểu. Nếu thiếu thông tin hoặc thẩm quyền thì chưa thực hiện bước rủi ro. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 2 | Rà soát/phân loại | Người thực hiện và người kiểm tra | Kiểm tra cập nhật, quyền chia sẻ, dữ liệu nhạy cảm và mục không được phép chuyển. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 3 | Chuẩn bị gói an toàn | Người thực hiện và người kiểm tra | Làm sạch secret, mã hóa khi cần, kiểm tra file và dùng kênh được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 4 | Chuyển giao/kiểm thử | Người thực hiện và người kiểm tra | Walkthrough, xác nhận nhận từng hạng mục và test quyền/runbook/dịch vụ. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
-| 5 | Xác minh, đóng và lưu hồ sơ | Chủ sở hữu quy trình/IT Lead | Người kiểm tra xác nhận kết quả, quyền và phạm vi; ghi thời gian, bằng chứng, quyết định, thông báo và việc tồn. Chỉ đóng khi đủ hồ sơ hoặc có ngoại lệ được duyệt. | Ticket, log, phê duyệt hoặc biên bản tương ứng |
+| Vai trò | Trách nhiệm |
+|---|---|
+| Contract Owner | Xác nhận hợp đồng, nghĩa vụ, ngày hiệu lực và phạm vi thương mại. |
+| Service Owner/IT Lead | Điều phối chuyển giao, kỹ thuật, quyền và chất lượng. |
+| Kỹ thuật viên | Thực hiện thao tác được duyệt, ghi log và kết quả. |
+| Đầu mối khách hàng/bên nhận | Xác nhận quyền, nhận dữ liệu/tài liệu và nghiệm thu. |
+| ATTT/Legal | Rà soát dữ liệu, sự cố, retention và nghĩa vụ pháp lý khi liên quan. |
 
-### Lưu đồ
+## 5. Đầu vào và điều kiện bắt đầu
+
+Hồ sơ cần có hợp đồng/phụ lục, ngày hiệu lực, danh mục hệ thống/tài sản/dữ liệu/quyền, đầu mối, người phê duyệt, kế hoạch, tiêu chí nghiệm thu và nơi lưu bằng chứng. Nếu thông tin mâu thuẫn hoặc người nhận chưa được xác minh, dừng việc chuyển/xóa/thu hồi có rủi ro và chuyển cấp.
+
+## 6. Trình tự thực hiện chi tiết
+
+### Bước 1 — Xác định phạm vi
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Lập danh mục hệ thống, tài sản, dịch vụ, dữ liệu, cấu hình, domain/DNS, chứng thư, license, backup, tài liệu, ticket và phụ thuộc sẽ chuyển. Xác định rõ nội dung không bàn giao và quyền sở hữu; Contract Owner xác nhận phạm vi.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 2 — Xác minh bên nhận
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Xác minh tổ chức/người nhận, thẩm quyền, kênh truyền, yêu cầu bảo mật, năng lực tiếp nhận và đầu mối kỹ thuật. Không gửi dữ liệu hoặc thông tin truy cập cho người chưa xác minh.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 3 — Lập kế hoạch chuyển
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Chốt lịch, thứ tự, phương pháp, trách nhiệm, thời gian gián đoạn, kiểm thử, rollback, thông báo, điều kiện hoàn tất và hỗ trợ sau chuyển. Mọi thay đổi production phải theo QT-IT-13.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 4 — Chuẩn bị dữ liệu/cấu hình
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Rà soát dữ liệu cần chuyển, loại bỏ dữ liệu ngoài phạm vi, xử lý secret và khóa, xuất cấu hình an toàn, ghi phiên bản và kiểm tra toàn vẹn. Không chuyển mật khẩu dùng chung/private key không cần thiết; ưu tiên cấp credential mới.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 5 — Thực hiện chuyển giao
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Dùng kênh được duyệt, mã hóa, kiểm soát người gửi/nhận và thời gian. Ghi danh mục, hash khi phù hợp, người giao/nhận và kết quả. Dừng nếu sai người nhận, thiếu dữ liệu hoặc có rủi ro bảo mật.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 6 — Kiểm tra và nghiệm thu
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Bên nhận kiểm tra dữ liệu, cấu hình, truy cập, chức năng, tài liệu và phụ thuộc. Ghi sai lệch, owner/hạn và quyết định. Gửi file thành công không đồng nghĩa nghiệm thu kỹ thuật.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 7 — Chuyển quyền vận hành
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Chuyển quyền theo thời điểm đã duyệt; xác nhận bên nhận có quyền/công cụ trước khi thu hồi quyền Mstar. Quyền tạm thời cần phê duyệt, thời hạn và giám sát.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+### Bước 8 — Đóng bàn giao
+**Người thực hiện:** Contract Owner/Service Owner/IT theo phân công.
+
+Lưu biên bản, bằng chứng truyền/nhận, kiểm tra, ticket tồn, quyền đã chuyển/thu hồi, lịch hỗ trợ và trách nhiệm sau bàn giao.
+
+**Điều kiện đạt:** Có xác nhận và bằng chứng truy nguyên. **Nếu không đạt:** Giữ hồ sơ mở, ghi sai lệch, owner và hạn khắc phục.
+
+## 7. Xử lý ngoại lệ và chuyển cấp
+
+Chuyển cấp khi có tranh chấp về quyền sở hữu dữ liệu, yêu cầu xóa mâu thuẫn nghĩa vụ lưu, không thể thu hồi tài khoản, vendor không xác nhận xóa, dữ liệu chuyển không toàn vẹn hoặc có nguy cơ gián đoạn. Ghi vấn đề, tác động, bằng chứng, người quyết định, phương án bù trừ, owner và hạn. Không tự xác nhận hoàn tất khi còn quyền/dữ liệu chưa được kiểm tra.
+
+## 8. Bằng chứng vận hành
+
+| Hồ sơ | Nội dung tối thiểu |
+|---|---|
+| Hợp đồng/phạm vi | Ngày kết thúc/chuyển giao, dịch vụ, nghĩa vụ |
+| Danh mục quyền/tài sản/dữ liệu | Đối tượng, owner, trạng thái, người nhận |
+| Kế hoạch và phê duyệt | Bước, lịch, người duyệt, điều kiện |
+| Bằng chứng chuyển/thu hồi/xóa | Thời điểm, người làm, kết quả, log/xác nhận |
+| Nghiệm thu/đóng hồ sơ | Người nhận, việc tồn, rủi ro và xác nhận |
+
+Lưu tại kho chính thức, giới hạn quyền truy cập và retention theo danh mục/hợp đồng. Không đưa dữ liệu khách hàng hoặc secret vào repository mã nguồn.
+
+## 9. KPI và giám sát
+
+| KPI | Định nghĩa |
+|---|---|
+| Tỷ lệ checklist hoàn tất đúng hạn | Checklist hoàn tất đúng hạn / checklist đến hạn |
+| Tỷ lệ quyền thu hồi được xác minh | Quyền đã xác minh thu hồi / quyền phải thu hồi |
+| Tỷ lệ dữ liệu được đối soát | Dữ liệu trả/xóa/lưu có bằng chứng / dữ liệu thuộc danh mục |
+| Ngoại lệ quá hạn | Số ngoại lệ hết hạn chưa đóng |
+| Hồ sơ thiếu xác nhận | Hồ sơ chưa có nghiệm thu/xác nhận bắt buộc |
+
+## 10. Lưu đồ
 
 ```mermaid
 flowchart TD
-  A([Bắt đầu]) --> S1["Tiếp nhận và xác định phạm vi"]
-  S1 --> D1{"Đủ thông tin và đúng thẩm quyền?"}
-  D1 -- Không --> F1[/"Bổ sung thông tin hoặc xin phê duyệt"/]
-  F1 --> S1
-  D1 -- Có --> S2["Rà soát/phân loại"]
-  S2 --> S3["Chuẩn bị gói an toàn"]
-  S3 --> D2{"Phát hiện rủi ro/ngoại lệ?"}
-  D2 -- Có --> RISK[/"Đánh giá, xử lý hoặc xin phê duyệt"/]
-  RISK --> S4["Chuyển giao/kiểm thử"]
-  D2 -- Không --> S4
-  S4 --> S5["Xác minh, đóng và lưu hồ sơ"]
-  S5 --> D3{"Kết quả đạt, bằng chứng đủ?"}
-  D3 -- Không --> R[/"Khắc phục hoặc mở lại công việc"/]
-  R --> S3
-  D3 -- Có --> Z([Kết thúc])
+ A([Khởi tạo kết thúc/chuyển giao]) --> B[Xác nhận hợp đồng và phạm vi]
+ B --> C[Lập danh mục quyền, dữ liệu, tài sản, công việc]
+ C --> D{Đủ phê duyệt và xác minh người nhận?}
+ D -- Không --> E[Chờ xác minh / chuyển cấp]
+ E --> D
+ D -- Có --> F[Thực hiện bàn giao/thu hồi/xóa theo kế hoạch]
+ F --> G[Kiểm tra độc lập và nghiệm thu]
+ G --> H{Đạt tiêu chí?}
+ H -- Không --> I[Khắc phục, ghi ngoại lệ và owner/hạn]
+ I --> F
+ H -- Có --> J[Đóng hồ sơ và lưu bằng chứng]
 ```
 
-### Biểu mẫu và hồ sơ
+## 11. Điều kiện ban hành
 
-- FR-QTCS02-01: Phiếu yêu cầu/checklist khởi tạo.
-- FR-QTCS02-02: Hồ sơ đánh giá, phê duyệt hoặc xác minh.
-- FR-QTCS02-03: Nhật ký thực hiện/biên bản/báo cáo.
-- FR-QTCS02-04: Xác nhận hoàn tất và theo dõi việc tồn.
+- [ ] Xác nhận ngày hiệu lực, phạm vi hợp đồng và người có thẩm quyền.
+- [ ] Đối chiếu danh mục quyền, tài sản, dữ liệu và nghĩa vụ lưu/xóa.
+- [ ] Kiểm tra biểu mẫu và kho lưu bằng chứng.
+- [ ] Chạy thử kịch bản chuyển giao/kết thúc, bao gồm ngoại lệ.
+- [ ] Khắc phục sai lệch, đào tạo người tham gia và lưu bằng chứng.
+- [ ] Phê duyệt và công bố phiên bản hiệu lực.
 
-*Mã biểu mẫu là mã đề xuất; khi ban hành cần đưa vào danh mục tài liệu, xác định chủ sở hữu, nơi lưu, quyền truy cập và thời hạn lưu giữ.*
-
-### KPI và giám sát
-
-- Tỷ lệ hồ sơ có đủ thông tin đầu vào và phê duyệt.
-- Tỷ lệ bước/công việc hoàn thành đúng hạn theo quy trình hoặc hợp đồng.
-- Số lỗi, ngoại lệ, sự cố hoặc hồ sơ phải làm lại.
-- Tỷ lệ hành động khắc phục đóng đúng hạn.
-
-Chủ sở hữu quy trình phải xác định nguồn dữ liệu, công thức, chu kỳ đo và ngưỡng cảnh báo trước khi áp dụng.
-
-### Ngoại lệ và an toàn thông tin
-
-Walkthrough, xác nhận nhận từng hạng mục và test quyền/runbook/dịch vụ.
-
-- Không thao tác ngoài phạm vi hợp đồng/ủy quyền; khi thiếu quyền hoặc phê duyệt phải tạm dừng bước có rủi ro.
-- Không ghi mật khẩu, API key, token, khóa riêng hoặc mã khôi phục dạng rõ trong ticket, README, email thường hay tài liệu bàn giao.
-- Thay đổi hệ thống phải theo QT-IT-13; nghi ngờ sự cố ATTT phải theo QT-ATTT-04; ngoại lệ phải theo QT-ISMS-04.
-- Mọi ngoại lệ phải có lý do, đánh giá rủi ro, biện pháp bù trừ, người phê duyệt, owner và hạn hết hiệu lực.
-
-### Phụ lục cần cấu hình theo khách hàng
-
-| Trường | Nội dung xác nhận |
-|---|---|
-| Khách hàng/mã hợp đồng | Theo hợp đồng đang hiệu lực |
-| Phạm vi hệ thống/dịch vụ | Hệ thống, tenant, site, tài sản và loại dịch vụ |
-| SLA/lịch hỗ trợ | Theo hợp đồng/phụ lục, không dùng mặc định chung |
-| Đầu mối yêu cầu/phê duyệt | Chức danh, kênh liên hệ và người thay thế |
-| Quyền/kênh kỹ thuật | Phạm vi ủy quyền, MFA, VPN, thời hạn |
-| Dữ liệu/lưu giữ | Phân loại, nơi lưu, thời hạn, trả/xóa |
-| Thông báo sự cố | Kênh, người nhận và thời hạn |
-| Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
-
-**Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
-
----
-
-## Bộ biểu mẫu đi kèm
-
-Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-CS-02](../../bieu-mau/QT-CS-02-Bieu-mau.md).
+**Lưu ý:** Dự thảo cần được rà soát theo hợp đồng, pháp luật áp dụng và phạm vi ISMS; không tự chứng minh chứng nhận ISO.
