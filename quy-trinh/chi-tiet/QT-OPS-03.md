@@ -88,3 +88,7 @@ Thực hiện theo thẩm quyền; thay DNS/cấu hình phải theo change manag
 | Ngoại lệ/rủi ro tồn dư | Mã hồ sơ, phê duyệt, bù trừ, ngày hết hạn |
 
 **Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+
+## Bộ biểu mẫu đi kèm
+
+Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-OPS-03](../../bieu-mau/QT-OPS-03-Bieu-mau.md).
