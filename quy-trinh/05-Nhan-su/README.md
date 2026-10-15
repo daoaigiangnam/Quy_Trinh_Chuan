@@ -11,6 +11,22 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Danh mục quy trình chi tiết thuộc nhóm Nhân sự:
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| QT-HR-01 | [Tiếp nhận nhân sự mới](../chi-tiet/QT-HR-01.md) |
+| QT-HR-02 | [Điều chuyển nhân sự](../chi-tiet/QT-HR-02.md) |
+| QT-HR-03 | [Nghỉ việc và thu hồi quyền](../chi-tiet/QT-HR-03.md) |
+| QT-HR-04 | [Bàn giao tri thức](../chi-tiet/QT-HR-04.md) |
+| QT-HR-05 | [Đào tạo nhận thức ATTT](../chi-tiet/QT-HR-05.md) |
+
+Mở [danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md). Các tài liệu vẫn là dự thảo, chỉ áp dụng sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
