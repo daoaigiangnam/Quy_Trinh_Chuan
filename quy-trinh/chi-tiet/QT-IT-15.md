@@ -90,3 +90,7 @@ Kiểm tra dịch vụ, hiệu năng, cảnh báo và tác động khách hàng.
 **Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
+
+## Bộ biểu mẫu đi kèm
+
+Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-IT-15](../../bieu-mau/QT-IT-15-Bieu-mau.md).
