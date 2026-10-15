@@ -11,6 +11,22 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Danh mục quy trình chi tiết thuộc nhóm Sao lưu, khôi phục và BCP/DR:
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| QT-OPS-01 | [Sao lưu dữ liệu](../chi-tiet/QT-OPS-01.md) |
+| QT-OPS-02 | [Kiểm thử khôi phục dữ liệu](../chi-tiet/QT-OPS-02.md) |
+| QT-OPS-03 | [Quản lý domain, SSL và chứng thư](../chi-tiet/QT-OPS-03.md) |
+| QT-BCP-01 | [Duy trì hoạt động liên tục](../chi-tiet/QT-BCP-01.md) |
+| QT-BCP-02 | [Khôi phục sau thảm họa](../chi-tiet/QT-BCP-02.md) |
+
+Mở [danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md). Các tài liệu vẫn là dự thảo, chỉ áp dụng sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
