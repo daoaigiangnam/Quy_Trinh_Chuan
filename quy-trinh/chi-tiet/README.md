@@ -1,8 +1,8 @@
 # Danh mục quy trình chi tiết Mstar
 
-Tổng cộng **41 quy trình**. Mỗi tài liệu có mục đích, phạm vi, vai trò, các bước, lưu đồ Mermaid, biểu mẫu/hồ sơ đề xuất, KPI, ngoại lệ và phụ lục khách hàng.
+Tổng cộng **41 quy trình**. Mỗi tài liệu gồm mục đích, phạm vi, vai trò, hướng dẫn tác nghiệp, lưu đồ, bằng chứng, KPI, ngoại lệ và điều kiện ban hành. Các tài liệu trong nhánh rà soát đã được mở rộng lên **dự thảo v0.2**; cần kiểm tra chéo biểu mẫu, công cụ và quy định thực tế trước khi trình ký.
 
-> Tất cả đang ở trạng thái dự thảo v0.1. Mã biểu mẫu là mã đề xuất, cần chuẩn hóa trước khi ban hành. Mapping ISO phải được xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
+> **Trạng thái:** Dự thảo v0.2, chưa có hiệu lực ban hành. Mã biểu mẫu vẫn cần đối chiếu với 41 bộ biểu mẫu hiện có. Mapping ISO phải được xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA. Không tự đặt SLA, thời hạn lưu, RTO/RPO hoặc nghĩa vụ thông báo chung cho mọi khách hàng.
 
 | STT | Mã | Tên quy trình | Tài liệu |
 |---:|---|---|---|
