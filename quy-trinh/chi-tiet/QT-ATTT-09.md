@@ -90,3 +90,7 @@ Cấp quyền tối thiểu, MFA, thời hạn; theo dõi SLA, sự cố và tha
 **Trạng thái:** Dự thảo v0.1 — chờ rà soát, thử nghiệm và phê duyệt. Mapping ISO chỉ mang tính định hướng; cần xác nhận theo phạm vi ISMS, đánh giá rủi ro và SoA.
 
 ---
+
+## Bộ biểu mẫu đi kèm
+
+Biểu mẫu trống, trường điền, nhật ký xử lý, phần rà soát/phê duyệt và checklist đóng hồ sơ: [Mở bộ biểu mẫu QT-ATTT-09](../../bieu-mau/QT-ATTT-09-Bieu-mau.md).
