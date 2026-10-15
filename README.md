@@ -204,3 +204,11 @@ Mỗi file riêng chứa nội dung quy trình và lưu đồ Mermaid tương �
 - [Mở thư mục biểu mẫu](bieu-mau/)
 
 Các biểu mẫu đang là dự thảo v0.1; cần rà soát, thử nghiệm và phê duyệt trước khi ban hành. SLA, quyền, thời hạn thông báo, lưu giữ và RTO/RPO phải được cấu hình theo hợp đồng từng khách hàng.
+
+## 12. Bộ quản trị vận hành và bằng chứng
+
+Đã bổ sung ma trận RACI, ma trận phân quyền RBAC, danh mục bằng chứng vận hành, danh mục tài liệu/lưu giữ, sổ rủi ro ATTT, khung SoA, phụ lục khách hàng, lịch kiểm soát, checklist audit và từ điển KPI.
+
+- [Mở bộ quản trị vận hành và bằng chứng](quan-tri/README-Bo-quan-tri-van-hanh.md)
+
+Các tài liệu là dự thảo; cần chốt phạm vi ISMS, rủi ro, SoA, phân quyền thực tế và bằng chứng vận hành trước khi ban hành.
