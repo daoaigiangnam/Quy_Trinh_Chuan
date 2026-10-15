@@ -11,6 +11,25 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Danh mục quy trình chi tiết thuộc nhóm Quản trị ISMS:
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| POL-ISMS-01 | [Chính sách an toàn thông tin tổng thể](../chi-tiet/POL-ISMS-01.md) |
+| QT-ISMS-01 | [Đánh giá và xử lý rủi ro ATTT](../chi-tiet/QT-ISMS-01.md) |
+| QT-ISMS-02 | [Quản lý tài liệu và hồ sơ](../chi-tiet/QT-ISMS-02.md) |
+| QT-ISMS-03 | [Quản lý nghĩa vụ pháp lý và hợp đồng](../chi-tiet/QT-ISMS-03.md) |
+| QT-ISMS-04 | [Quản lý ngoại lệ](../chi-tiet/QT-ISMS-04.md) |
+| QT-ISMS-05 | [Kiểm toán nội bộ](../chi-tiet/QT-ISMS-05.md) |
+| QT-ISMS-06 | [Xem xét của lãnh đạo](../chi-tiet/QT-ISMS-06.md) |
+| QT-QL-01 | [Quản lý KPI và cải tiến](../chi-tiet/QT-QL-01.md) |
+
+Mở [danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md). Các tài liệu vẫn là dự thảo, chỉ áp dụng sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
