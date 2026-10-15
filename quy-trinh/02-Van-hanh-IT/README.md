@@ -11,6 +11,27 @@ Bộ quy trình chuẩn Mstar — bản dự thảo ngày 2026-10-14. Tài liệ
 - Quy trình chỉ có hiệu lực sau khi được rà soát và phê duyệt; đây không phải tuyên bố Mstar đã được chứng nhận ISO.
 - Tham chiếu: ISO/IEC 27001:2022 và ISO/IEC 27002:2022; mapping cuối cùng cần căn cứ risk assessment và SoA.
 
+## Tài liệu quy trình chi tiết
+
+Xem **[Danh mục toàn bộ quy trình chi tiết](../chi-tiet/README.md)** để mở nội dung từng quy trình trên nhánh `main`.
+
+| Mã | Quy trình chi tiết |
+|---|---|
+| QT-IT-07 | [Phối hợp Sale và IT](../chi-tiet/QT-IT-07.md) |
+| QT-IT-08 | [Hỗ trợ khách hàng](../chi-tiet/QT-IT-08.md) |
+| QT-IT-09 | [Quản lý công việc Phòng IT](../chi-tiet/QT-IT-09.md) |
+| QT-IT-10 | [Quản lý tài sản CNTT](../chi-tiet/QT-IT-10.md) |
+| QT-IT-11 | [Quản lý tài khoản và quyền truy cập](../chi-tiet/QT-IT-11.md) |
+| QT-IT-12 | [Tiếp nhận và bàn giao dịch vụ khách hàng](../chi-tiet/QT-IT-12.md) |
+| QT-IT-13 | [Quản lý thay đổi hệ thống](../chi-tiet/QT-IT-13.md) |
+| QT-IT-14 | [Quản lý cấu hình hệ thống](../chi-tiet/QT-IT-14.md) |
+| QT-IT-15 | [Giám sát và bảo trì hệ thống](../chi-tiet/QT-IT-15.md) |
+| QT-IT-16 | [Quản lý SLA và chất lượng dịch vụ](../chi-tiet/QT-IT-16.md) |
+
+> **Trạng thái:** Các tài liệu chi tiết vẫn là dự thảo; chỉ áp dụng chính thức sau khi được rà soát, thử nghiệm và phê duyệt.
+
+---
+
 ## Danh mục trong nhóm
 
 | Mã | Quy trình | Mục đích |
