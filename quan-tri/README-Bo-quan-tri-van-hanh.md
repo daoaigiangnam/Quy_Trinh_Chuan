@@ -28,7 +28,22 @@
 - [QT-OPS-01 — Quy trình sao lưu dữ liệu](../quy-trinh/chi-tiet/QT-OPS-01.md)
 - [QT-BCP-02 — Quy trình khôi phục sau thảm họa](../quy-trinh/chi-tiet/QT-BCP-02.md)
 
-## 3. Thành phần còn phải hoàn tất trước khi ban hành
+## 5. Chuẩn nâng cấp độ chi tiết quy trình
+
+- [Chuẩn biên soạn và checklist rà soát quy trình chi tiết](./CHUAN-BIEN-SOAN-QUY-TRINH-CHI-TIET.md)
+- Đợt nâng cấp v0.2 đã mở rộng hướng dẫn tác nghiệp cho toàn bộ nhóm quy trình đang có trong thư mục `quy-trinh/chi-tiet/`: IT, ATTT, ISMS, BCP, OPS, HR, CS và QL.
+- Mỗi tài liệu vẫn là **dự thảo** cho đến khi hoàn tất chạy thử, xác nhận biểu mẫu, chốt vai trò/thẩm quyền và phê duyệt chính thức.
+- Các thông tin phụ thuộc khách hàng như SLA, giờ hỗ trợ, RTO/RPO, thời hạn lưu, nghĩa vụ thông báo và quyền truy cập phải lấy từ hợp đồng/phụ lục đã xác minh; không tự điền giá trị chung.
+
+## 6. Tiêu chí trước khi nhập vào nhánh chính
+
+1. Rà soát từng quy trình với owner nghiệp vụ và kiểm tra các liên kết biểu mẫu.
+2. Chạy thử tối thiểu một tình huống thường lệ, một tình huống không đạt/chuyển cấp và một tình huống rủi ro cao khi phù hợp.
+3. Ghi lại kết quả chạy thử, lỗi, hành động khắc phục và bằng chứng kiểm tra lại.
+4. Xác nhận RACI/RBAC, công cụ thực tế, nơi lưu hồ sơ, retention và người phê duyệt.
+5. Chỉ sau khi các bước trên đạt mới trình duyệt ban hành và merge vào `main`.
+
+## 7. Thành phần còn phải hoàn tất trước khi ban hành
 1. Chốt phạm vi ISMS, bối cảnh, bên liên quan và giao diện với khách hàng/nhà cung cấp.
 2. Phê duyệt phương pháp chấm điểm rủi ro, ngưỡng chấp nhận, risk register thực tế và kế hoạch xử lý.
 3. Hoàn tất SoA từ bản ISO/IEC 27001:2022 được cấp phép và yêu cầu liên quan; mọi loại trừ cần lý do.
